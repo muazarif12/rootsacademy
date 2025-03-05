@@ -1,20 +1,23 @@
 import React from "react";
 
 const subjects = [
-  { name: "Physics", color: "bg-pink-400" },
-  { name: "Chemistry", color: "bg-purple-400" },
-  { name: "Mathematics", color: "bg-blue-400" },
-  { name: "Biology", color: "bg-red-400" },
-  { name: "Economics", color: "bg-green-400" },
-  { name: "Business", color: "bg-teal-500" },
-  { name: "Accounting", color: "bg-yellow-400" },
+  { name: "Physics", color: "from-pink-400 to-pink-600" },
+  { name: "Chemistry", color: "from-purple-400 to-purple-600" },
+  { name: "Mathematics", color: "from-blue-400 to-blue-600" },
+  { name: "Biology", color: "from-red-400 to-red-600" },
+  { name: "Economics", color: "from-green-400 to-green-600" },
+  { name: "Business", color: "from-teal-400 to-teal-600" },
+  { name: "Accounting", color: "from-yellow-400 to-yellow-600" },
 ];
 
 const SubjectButtons = () => {
   return (
-    <div className="flex flex-wrap justify-center gap-4 mt-6">
+    <div className="flex flex-wrap justify-center gap-6 mt-8">
       {subjects.map((subject, index) => (
-        <button key={index} className={`${subject.color} text-white px-6 py-2 rounded-lg`}>
+        <button
+          key={index}
+          className={`bg-gradient-to-r ${subject.color} text-white px-8 py-3 rounded-lg text-lg font-semibold shadow-md transform transition-all duration-300 hover:scale-105 hover:brightness-110`}
+        >
           {subject.name}
         </button>
       ))}
