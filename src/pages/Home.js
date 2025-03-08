@@ -5,6 +5,7 @@ import CoursePreview from "../components/CoursePreview";
 import StatsSection from "../components/StatsSection";
 import Testimonials from "../components/Testimonials";
 import FeaturesSection from "../components/FeaturesSection"; 
+import Flashcard from "../components/Flashcard";
 const Home = () => {
   return (
     <div className="min-h-screen">
@@ -22,6 +23,7 @@ const Home = () => {
 
       {/* New Features Section */}
       <FeaturesSection />
+      <Flashcard/>
 
     </div>
   );
