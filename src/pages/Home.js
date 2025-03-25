@@ -7,6 +7,8 @@ import Testimonials from "../components/Testimonials";
 import FeaturesSection from "../components/FeaturesSection"; 
 import Flashcard from "../components/Flashcard";
 import AcademicJourney from "../components/AcademicJourney";
+import Testimonials2 from "../components/Testimonials2";
+import GotQuestions from "../components/GotQuestions";
 const Home = () => {
   return (
     <div className="min-h-screen">
@@ -26,8 +28,11 @@ const Home = () => {
       <FeaturesSection />
       <Flashcard/>
       <AcademicJourney/>
-
+      <Testimonials2/>
+      <GotQuestions/>
+    
     </div>
+    
   );
 };
 

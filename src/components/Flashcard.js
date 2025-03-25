@@ -1,33 +1,24 @@
-import React from "react";
-
-const Flashcard = () => {
-  const flashcards = Array(10).fill({
+export default function Flashcards() {
+  const flashcards = Array(9).fill({
+    imgSrc: "https://placehold.co/153x123",
     title: "Flashcards",
-    description:
-      "Quick, effective revision that sticks. Build exam confidence, one card at a time.",
-    imageUrl: "",
+    description: "Quick, effective revision that sticks. Build exam confidence, one card at a time."
   });
 
   return (
-    <div className="flex flex-wrap justify-center gap-6 p-6">
-      {flashcards.map((card, index) => (
-        <div
-          key={index}
-          className="w-[564px] h-[330px] bg-white rounded-[46px] flex flex-col items-center p-6 shadow-lg"
-        >
-          <img
-            src={card.imageUrl}
-            alt="Flashcard"
-            className="w-[153px] h-[123px] mb-4"
-          />
-          <div className="text-center">
-            <h2 className="text-[#4D3E77] text-2xl font-bold">{card.title}</h2>
-            <p className="text-[#4D3E77] text-lg font-bold mt-2">{card.description}</p>
+    <div className="flex justify-center pt-12 p-6"> {/* Added top padding */}
+      <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        {flashcards.map((card, index) => (
+          <div key={index} className="w-[480px] h-[270px] relative flex items-center justify-center"> {/* Adjusted size */}
+            <div className="w-[480px] h-[270px] absolute bg-[#4d3e78] rounded-[46px] shadow-lg border-2 border-white" />
+            <img className="w-[130px] h-[100px] absolute top-8 shadow-lg border-2 border-white" src={card.imgSrc} alt="Flashcard" />
+            <div className="absolute top-[135px] text-center w-[440px]">
+              <span className="text-white text-[28px] font-bold font-['Inter'] [text-shadow:_0px_4px_4px_rgb(0_0_0_/_0.25)]">{card.title}<br/></span>
+              <span className="text-white text-lg font-bold font-['Inter'] [text-shadow:_0px_4px_4px_rgb(0_0_0_/_0.25)]">{card.description}<br/></span>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
-};
-
-export default Flashcard;
+}
