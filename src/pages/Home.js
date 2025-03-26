@@ -3,6 +3,7 @@ import HeroSection from "../components/HeroSection";
 import SubjectButtons from "../components/SubjectButtons";
 import CoursePreview from "../components/CoursePreview";
 import StatsSection from "../components/StatsSection";
+import LiveInteractiveSection from "../components/LiveInteractiveSection";
 import Testimonials from "../components/Testimonials";
 import FeaturesSection from "../components/FeaturesSection"; 
 import Flashcard from "../components/Flashcard";
@@ -25,6 +26,7 @@ const Home = () => {
       </div>
       {/* New Features Section */}
       <FeaturesSection />
+      <LiveInteractiveSection />
       <Flashcard/>
       <AcademicJourney/>
       <Testimonials2/>
