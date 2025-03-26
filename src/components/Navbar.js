@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="flex justify-between items-center px-12 py-6 bg-[#E8DAF8] text-[#3C2A7B] shadow-md text-lg font-semibold">
+    <nav className="flex justify-between items-center px-12 py-6 bg-[#FDF9F6] text-[#4D3E77] shadow-md text-lg font-semibold">
       {/* Logo */}
       <div className="text-3xl font-extrabold">Roots Academy</div>
 
@@ -20,10 +20,10 @@ const Navbar = () => {
 
       {/* Buttons with gradient effect and hover animations */}
       <div className="space-x-6">
-        <button className="px-6 py-3 bg-gradient-to-r from-[#D8B4F8] to-[#C9A7F5] text-[#3C2A7B] font-semibold rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+      <button className="px-6 py-3 bg-[#C2AAFA] text-[#3C2A7B] font-semibold rounded-lg text-lg transition-all duration-300 transform hover:bg-[#A179D5] shadow-lg">
           Register
         </button>
-        <button className="px-6 py-3 bg-gradient-to-r from-[#5E3BEE] to-[#3C2A7B] text-white font-semibold rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+        <button className="px-6 py-3 bg-[#4D3E78] text-white font-semibold rounded-lg text-lg transition-all duration-300 transform hover:bg-[#3A2C5A] shadow-lg">
           Sign Up
         </button>
       </div>

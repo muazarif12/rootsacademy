@@ -1,24 +1,24 @@
 import React from "react";
 
 const stats = [
-  { value: "800+", label: "Live Courses & Videos", bgColor: "bg-purple-200", textColor: "text-purple-800" },
-  { value: "200+", label: "Resources", bgColor: "bg-orange-100", textColor: "text-orange-700" },
-  { value: "3600+", label: "Hours of classes", bgColor: "bg-pink-200", textColor: "text-pink-700" },
-  { value: "93%", label: "Retention Rate", bgColor: "bg-green-200", textColor: "text-green-800" },
+  { value: "800+", label: "Live Courses & Videos", bgColor: "bg-[#eadff8]", textColor: "text-[#4d3e78]" , borderColor: "border-[#c2aafa]"}, // Updated color
+  { value: "200+", label: "Resources", bgColor: "bg-[#ffe0cc]", textColor: "text-[#b74d1a]" , borderColor: "border-[#ffc8a3]"}, // Updated color
+  { value: "3600+", label: "Hours of classes", bgColor: "bg-[#ffdce8]", textColor: "text-[#a54b7a]" , borderColor: "border-[#d6a2b9]"}, // Updated color
+  { value: "93%", label: "Retention Rate", bgColor: "bg-[#d6edd9]", textColor: "text-[#195642]" , borderColor: "border-[#53b07f]"}, // Updated color
 ];
 
 const StatsSection = () => {
   return (
     <div className="bg-white py-16">
-      <div className="flex justify-center gap-12">
+      <div className="flex justify-center gap-11">
         {stats.map((stat, index) => (
-          <div key={index} className="flex flex-col items-center">
+          <div key={index} className="flex flex-col items-center w-[250px] h-[141.8px]">
             {/* Number inside rounded box with shadow */}
-            <div className={`px-10 py-5 rounded-xl text-4xl font-extrabold ${stat.bgColor} ${stat.textColor} shadow-md`}>
+            <div className={`px-8 py-10 rounded-xl text-6xl font-extrabold ${stat.bgColor} ${stat.textColor} ${stat.borderColor} border shadow-md font-['Inter_Tight']`}>
               {stat.value}
             </div>
             {/* Label below with better font styling */}
-            <p className={`text-lg font-semibold mt-3 tracking-wide ${stat.textColor}`}>
+            <p className={`text-lg font-semibold mt-3 tracking-wide ${stat.textColor} font-['Inter_Tight']`}>
               {stat.label}
             </p>
           </div>

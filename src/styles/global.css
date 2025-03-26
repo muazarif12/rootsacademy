@@ -1,0 +1,15 @@
+/* styles.css */
+.h1-heading-toolkit {
+    font-size: 60px;
+    font-weight: 800;
+    color: #58509A;
+    line-height: 1.1;
+    letter-spacing: normal;
+  }
+  
+  .paragraph-x-large {
+    font-size: 32px;
+    max-width: 54rem;
+    color: #4d3e78;
+    line-height: 1.3;
+  }
