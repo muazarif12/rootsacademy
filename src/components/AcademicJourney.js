@@ -4,7 +4,7 @@ const AcademicJourney = () => {
   return (
     <div className="flex flex-col items-center justify-center text-center p-6">
       {/* Header Section */}
-      <div className="w-[320px] h-[81px] bg-[#4D3E78] relative top-[90px] left-[60px] z-[-1]"></div>
+      <div className="w-[295px] h-[81px] bg-[#4D3E78] relative top-[90px] right-[86px] z-[-1] rounded-[10px]"></div>
 
       {/* Main Text Section */}
       <div className="w-[1030px] h-[258px] ">
