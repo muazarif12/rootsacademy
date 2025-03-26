@@ -1,55 +1,77 @@
-export default function GotQuestions(){
-    return(
-        <div className="flex justify-center pt-12 p-6"> {/* Added top padding */}
-                <div className="w-[2399px] h-[1589px] relative bg-[#4d3e78] overflow-hidden">
-        <div className="w-[1919px] h-[236px] left-[293px] top-[861px] absolute bg-white rounded-[30px]" />
-        <div className="w-[400px] h-[79px] left-[432px] top-[260px] absolute bg-white" />
-        <div className="w-[556px] h-[196px] left-[294px] top-[258px] absolute justify-start"><span class="text-white text-[70px] font-extrabold font-['Inter']">Got </span><span class="text-[#4d3e78] text-[70px] font-extrabold font-['Inter']">Questions?<br/></span></div>
-        <div className="w-[921px] h-[190px] left-[293px] top-[413px] absolute justify-start text-white text-[32px] font-extrabold font-['Inter']">Find all the answers to common questions here. If you’re still on the fence and need extra support – book a free consultation with our team. We're here to help you succeed.</div>
-        <div className="w-[290px] h-[102px] left-[296px] top-[660px] absolute bg-[#bfa1e6] rounded-[30px]" />
-        <div className="w-[198px] h-[49px] left-[353px] top-[691px] absolute justify-start text-[#4d3e78] text-[32px] font-extrabold font-['Inter']">Contact us</div>
-        <div className="w-[290px] h-[102px] left-[1839px] top-[923px] absolute bg-[#bfa1e6] rounded-[30px]" />
-        <div className="w-[233px] h-[49px] left-[1886px] top-[953px] absolute justify-start text-[#4d3e78] text-[32px] font-extrabold font-['Inter']">Book a demo</div>
-        <div className="w-[397px] h-[100px] left-[1392px] top-[258px] absolute bg-white rounded-[20px]" />
-        <div data-size="48" className="w-[30px] h-[30px] left-[1722px] top-[288px] absolute overflow-hidden">
-            <div className="w-[15px] h-[7.50px] left-[7.50px] top-[11.25px] absolute outline outline-4 outline-offset-[-2px] outline-[#1e1e1e]" />
-        </div>
-        <div className="left-[1437px] top-[286px] absolute justify-start text-[#4d3e78] text-xl font-medium font-['Inter']">Which Subjects do you<br/>offer?</div>
-        <div className="w-10 h-11 left-[1717px] top-[280px] absolute rounded-full border border-black" />
-        <div className="w-[397px] h-[100px] left-[1815px] top-[259px] absolute bg-white rounded-[20px]" />
-        <div data-size="48" className="w-[30px] h-[30px] left-[2145px] top-[289px] absolute overflow-hidden">
-            <div className="w-[15px] h-[7.50px] left-[7.50px] top-[11.25px] absolute outline outline-4 outline-offset-[-2px] outline-[#1e1e1e]" />
-        </div>
-        <div className="left-[1860px] top-[287px] absolute justify-start text-[#4d3e78] text-xl font-medium font-['Inter']">Which Subjects do you<br/>offer?</div>
-        <div className="w-10 h-11 left-[2140px] top-[281px] absolute rounded-full border border-black" />
-        <div className="w-[397px] h-[100px] left-[1391px] top-[394px] absolute bg-white rounded-[20px]" />
-        <div data-size="48" className="w-[30px] h-[30px] left-[1721px] top-[424px] absolute overflow-hidden">
-            <div className="w-[15px] h-[7.50px] left-[7.50px] top-[11.25px] absolute outline outline-4 outline-offset-[-2px] outline-[#1e1e1e]" />
-        </div>
-        <div className="left-[1436px] top-[422px] absolute justify-start text-[#4d3e78] text-xl font-medium font-['Inter']">Which Subjects do you<br/>offer?</div>
-        <div className="w-10 h-11 left-[1716px] top-[416px] absolute rounded-full border border-black" />
-        <div className="w-[397px] h-[100px] left-[1815px] top-[394px] absolute bg-white rounded-[20px]" />
-        <div data-size="48" className="w-[30px] h-[30px] left-[2145px] top-[424px] absolute overflow-hidden">
-            <div className="w-[15px] h-[7.50px] left-[7.50px] top-[11.25px] absolute outline outline-4 outline-offset-[-2px] outline-[#1e1e1e]" />
-        </div>
-        <div className="left-[1860px] top-[422px] absolute justify-start text-[#4d3e78] text-xl font-medium font-['Inter']">Which Subjects do you<br/>offer?</div>
-        <div className="w-10 h-11 left-[2140px] top-[416px] absolute rounded-full border border-black" />
-        <div className="w-[397px] h-[100px] left-[1391px] top-[533px] absolute bg-white rounded-[20px]" />
-        <div data-size="48" className="w-[30px] h-[30px] left-[1721px] top-[563px] absolute overflow-hidden">
-            <div className="w-[15px] h-[7.50px] left-[7.50px] top-[11.25px] absolute outline outline-4 outline-offset-[-2px] outline-[#1e1e1e]" />
-        </div>
-        <div className="left-[1436px] top-[561px] absolute justify-start text-[#4d3e78] text-xl font-medium font-['Inter']">Which Subjects do you<br/>offer?</div>
-        <div className="w-10 h-11 left-[1716px] top-[555px] absolute rounded-full border border-black" />
-        <div className="w-[397px] h-[100px] left-[1815px] top-[533px] absolute bg-white rounded-[20px]" />
-        <div data-size="48" className="w-[30px] h-[30px] left-[2145px] top-[563px] absolute overflow-hidden">
-            <div className="w-[15px] h-[7.50px] left-[7.50px] top-[11.25px] absolute outline outline-4 outline-offset-[-2px] outline-[#1e1e1e]" />
-        </div>
-        <div className="left-[1860px] top-[561px] absolute justify-start text-[#4d3e78] text-xl font-medium font-['Inter']">Which Subjects do you<br/>offer?</div>
-        <div className="w-10 h-11 left-[2140px] top-[555px] absolute rounded-full border border-black" />
-        <div className="w-[988px] h-[59px] left-[375px] top-[924px] absolute justify-start text-[#4d3e78] text-[40px] font-extrabold font-['Roboto']">Still confused? Get in touch with us.<br/></div>
-        <div className="w-[988px] h-[106px] left-[375px] top-[943px] absolute justify-start"><span class="text-[#4d3e78] text-[40px] font-extrabold font-['Roboto']"><br/></span><span class="text-[#4d3e78] text-3xl font-medium font-['Roboto']">Get personalized support and the answers to all your questions.</span></div>
-        </div>
-    </div>
+import { useState } from "react";
+import { FaChevronDown } from "react-icons/fa";
+import { motion } from "framer-motion"; // ✅ Import motion for smooth animations
 
-    );
+
+export default function FAQSection() {
+    const faqs = [
+        { question: "Which Subjects do you offer?", answer: "We offer Math, Science, English, and more!" },
+        { question: "How do I enroll?", answer: "You can enroll by signing up on our website." },
+        { question: "Is there a free trial?", answer: "Yes, we offer a 7-day free trial!" },
+        { question: "Do you provide certifications?", answer: "Yes, we provide official course completion certificates." },
+        { question: "Can I cancel anytime?", answer: "Yes, you can cancel your subscription anytime." },
+        { question: "What payment methods do you accept?", answer: "We accept credit/debit cards, PayPal, and more." }
+      ];
+
+  const [openIndex, setOpenIndex] = useState(null);
+
+  return (
+    <div className="bg-[#4C397D] min-h-screen flex flex-col justify-center items-center p-10 text-white">
+      {/* Main Container */}
+      <div className="max-w-6xl w-full flex flex-col lg:flex-row items-center lg:items-start">
+        {/* Left Section: Header */}
+        <div className="lg:w-1/2">
+          <h2 className="text-4xl font-bold">
+            Got <span className="bg-white text-[#4C397D] px-2 rounded-md">Questions?</span>
+          </h2>
+          <p className="mt-4 text-lg font-medium">
+            Find all the answers to common questions here. If you're still on the fence and need extra support – book a free consultation with our team. We're here to help you succeed.
+          </p>
+          <button className="mt-6 bg-purple-300 text-purple-900 font-semibold px-6 py-3 rounded-lg transform transition-all duration-300 hover:scale-105 hover:brightness-110">
+            Contact us
+          </button>
+        </div>
+
+{/* Right Section: FAQ Grid */}
+            <div className="lg:w-1/2 mt-10 lg:mt-0 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {faqs.map((faq, index) => (
+                        <div key={index} className="w-72">
+                        {/* Question Button */}
+                        <button
+                            className="bg-white text-left text-[#4C397D] px-6 py-4 rounded-lg flex justify-between items-center w-full shadow-md transform transition-all duration-300 hover:scale-105 hover:brightness-110"
+                            onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                        >
+                            {faq.question}
+                            <FaChevronDown className={`transition-transform duration-300 ${openIndex === index ? "rotate-180" : ""}`} />
+                        </button>
+
+                        {/* Expanding Answer (with smooth animation) */}
+                        <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: openIndex === index ? "auto" : 0, opacity: openIndex === index ? 1 : 0 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                            className="overflow-hidden"
+                        >
+                            <div className="bg-gray-100 text-left text-[#4C397D] p-4 mt-2 rounded-md shadow-sm">
+                            {faq.answer}
+                            </div>
+                        </motion.div>
+                        </div>
+                    ))}
+                    </div>
+                </div>
+
+      {/* Call-to-Action Section */}
+      <div className="mt-20 bg-white text-gray-900 p-6 rounded-xl shadow-lg w-full max-w-3xl flex flex-col sm:flex-row justify-between items-center">
+        <div>
+          <h3 className="text-xl font-bold">Still confused? Get in touch with us.</h3>
+          <p className="text-gray-600">Get personalized support and the answers to all your questions.</p>
+        </div>
+        <button className="mt-10 sm:mt-0 bg-purple-300 text-purple-900 font-semibold px-6 py-3 rounded-lg transform transition-all duration-300 hover:scale-105 hover:brightness-110">
+          Book a demo
+        </button>
+      </div>
+    </div>
+  );
 }
