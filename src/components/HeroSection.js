@@ -2,14 +2,17 @@ import React from "react";
 
 const HeroSection = () => {
   return (
-    <div className="text-center p-20 bg-[#E8DAF8]">
-      <h1 className="text-5xl font-extrabold text-[#3C2A7B]">
-        Be rooted with Roots Academy
+    <div className="text-center mb-16 font-['Inter_Tight'] p-20">
+      <h1 className="text-[41px] font-bold text-[#4D3E77] leading-[1.1] tracking-normal mt-0 mb-0">
+        Be rooted with{" "}
+        <span className="bg-[#4D3E77] text-white px-2 py-1 rounded-md inline-block">
+          Roots Academy
+        </span>
       </h1>
-      <p className="text-2xl font-bold text-[#5A3E95] mt-4">
+      <p className="text-[26px] font-bold text-[#4D3E77] mt-6">
         The Leader in IGCSE/ O-Level & A-Level Learning Platform
       </p>
-      <p className="text-lg font-bold text-[#5A3E95] mt-2">
+      <p className="text-[24.32px] font-regular text-[#4D3E77] mt-1">
         Empowering 1000+ students globally through our platform
       </p>
     </div>

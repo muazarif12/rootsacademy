@@ -24,7 +24,7 @@ const Testimonials = () => {
     <div className="bg-white py-12">
       <div className="flex justify-center gap-10 flex-wrap">
         {testimonials.map((testimonial, index) => (
-          <div key={index} className={`relative p-8 w-[500px] rounded-xl shadow-md ${testimonial.bgColor}`}>
+          <div key={index} className={`relative p-8 w-[580px] rounded-xl shadow-md ${testimonial.bgColor}`}>
             {/* Quote Icon Inside the Box */}
             <FaQuoteLeft className={`absolute top-4 left-4 text-2xl ${testimonial.quoteColor}`} />
 

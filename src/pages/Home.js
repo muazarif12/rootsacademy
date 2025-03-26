@@ -12,7 +12,7 @@ import GotQuestions from "../components/GotQuestions";
 const Home = () => {
   return (
     <div className="min-h-screen">
-      <div className="bg-[#E8DAF8] pb-20">  {/* Added extra padding to bottom */}
+      <div className="bg-[#FDF9F6] pb-20">  {/* Added extra padding to bottom */}
         <HeroSection />
         <SubjectButtons />
         <CoursePreview />
