@@ -21,10 +21,10 @@ export default function FAQSection() {
       <div className="max-w-6xl w-full flex flex-col lg:flex-row items-center lg:items-start">
         {/* Left Section: Header */}
         <div className="lg:w-1/2">
-          <h2 className="text-4xl font-bold">
+          <h2 className="text-4xl font-bold font-['Roboto']">
             Got <span className="bg-white text-[#4C397D] px-2 rounded-md">Questions?</span>
           </h2>
-          <p className="mt-4 text-lg font-medium">
+          <p className="mt-4 text-lg font-medium font-['Roboto'] ">
             Find all the answers to common questions here. If you're still on the fence and need extra support – book a free consultation with our team. We're here to help you succeed.
           </p>
           <button className="mt-6 bg-purple-300 text-purple-900 font-semibold px-6 py-3 rounded-lg transform transition-all duration-300 hover:scale-105 hover:brightness-110">
