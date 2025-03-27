@@ -68,9 +68,13 @@ export default function FAQSection() {
           <h3 className="text-xl font-bold">Still confused? Get in touch with us.</h3>
           <p className="text-gray-600">Get personalized support and the answers to all your questions.</p>
         </div>
-        <button className="mt-10 sm:mt-0 bg-purple-300 text-purple-900 font-semibold px-6 py-3 rounded-lg transform transition-all duration-300 hover:scale-105 hover:brightness-110">
-          Book a demo
+        <div className="mt-10 sm:mt-0 flex justify-center w-full">
+        <button className="bg-purple-300 text-purple-900 font-semibold px-6 py-3 rounded-lg transform transition-all duration-300 hover:scale-105 hover:brightness-110">
+            Book a demo
         </button>
+        </div>
+
+
       </div>
     </div>
   );
