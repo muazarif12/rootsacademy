@@ -66,6 +66,16 @@ export default function Testimonials() {
     return (
       <section className="bg-[#fdf9f6] py-20 pt-[140px] pb-[160px] relative">
         <div className="w-full max-w-[1200px] mx-auto">
+        <div className="text-center mb-16 font-['Roboto']">
+          <h1 className="text-[60px] font-bold text-[#4D3E77] leading-[1.1] tracking-normal mt-0 mb-0">
+            
+            <span className="bg-[#4D3E77] text-white px-2 py-1 rounded-md inline-block">
+              Testimonials
+            </span>{" "}
+            
+          </h1>
+          
+        </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-3 px-10">
             {/* Column 1 - Small, Large */}
             <div className="flex flex-col gap-3">

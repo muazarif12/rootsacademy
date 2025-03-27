@@ -9,7 +9,7 @@ const stats = [
 
 const StatsSection = () => {
   return (
-    <div className="bg-white py-16">
+    <div className=" py-16">
       <div className="flex flex-wrap justify-center gap-6">
         {stats.map((stat, index) => (
           <div key={index} className="flex flex-col items-center w-[200px] sm:w-[250px]">
