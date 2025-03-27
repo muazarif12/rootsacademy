@@ -10,10 +10,11 @@ import Flashcard from "../components/Flashcard";
 import AcademicJourney from "../components/AcademicJourney";
 import Testimonials2 from "../components/Testimonials2";
 import GotQuestions from "../components/GotQuestions";
+import Footer from "../components/Footer";
 const Home = () => {
   return (
-    <div className="min-h-screen">
-      <div className="bg-[#FDF9F6] pb-20">  {/* Added extra padding to bottom */}
+    <div className="min-h-screen  bg-[#FDF9F6]" > 
+      <div className=" pb-20">  {/* Added extra padding to bottom */}
         <HeroSection />
         <SubjectButtons />
         <CoursePreview />
@@ -27,10 +28,17 @@ const Home = () => {
       {/* New Features Section */}
       <FeaturesSection />
       <LiveInteractiveSection />
-      <Flashcard/>
-      <AcademicJourney/>
-      <Testimonials2/>
+      <div className="pt-24">
+        <Flashcard/>
+      </div>
+      <div className="pt-24">
+        <AcademicJourney/>
+      </div> 
+      <div className="pt-24">
+        <Testimonials2/>
+      </div>
       <GotQuestions/>
+      <Footer/>
 
       
     

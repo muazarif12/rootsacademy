@@ -2,20 +2,16 @@ import React from "react";
 
 const AcademicJourney = () => {
   return (
-    <div className="flex flex-col items-center justify-center text-center p-6">
+    <div className="flex flex-col items-center justify-center text-center pt-20">
       {/* Header Section */}
-      <div className="w-[295px] h-[81px] bg-[#4D3E78] relative top-[90px] right-[86px] z-[-1] rounded-[10px]"></div>
 
       {/* Main Text Section */}
       <div className="w-[1030px] h-[258px] ">
-        <h1 className="text-[60px] font-extrabold">
-          <span className="text-[#58509A]">Ready to </span>
-          <span className="text-white">Transform</span>
-          <span className="text-[#58509A]"> your Academic Journey?</span>
-        </h1>
+      <h1 className="text-[60px] font-bold text-[#4D3E77] leading-[1.1] tracking-normal">
+            Ready To <span className="bg-[#4D3E77]  text-white px-2 py-1 rounded-md inline-block">Transform</span> Your Academic Journey ?
+          </h1>
         <p className="text-[#4D3E78] text-[32px] font-light mt-4">
-          Get instant access to expert-led courses and comprehensive resources
-          that make A/A* grades achievable.
+        Get instant access to expert-led courses, timed crash courses, and comprehensive resources that make A/A* grades achievable
         </p>
       </div>
 

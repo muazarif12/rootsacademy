@@ -66,21 +66,21 @@ export default function Testimonials() {
     return (
       <section className="bg-[#fdf9f6] py-20 pt-[140px] pb-[160px] relative">
         <div className="w-full max-w-[1200px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-3">
             {/* Column 1 - Small, Large */}
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-3">
               <TestimonialCard testimonial={testimonials[0]} />
               <TestimonialCard testimonial={testimonials[1]} />
             </div>
     
             {/* Column 2 - Large, Small */}
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-3">
               <TestimonialCard testimonial={testimonials[3]} />
               <TestimonialCard testimonial={testimonials[2]} />
             </div>
     
             {/* Column 3 - Small, Large */}
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-3">
               <TestimonialCard testimonial={testimonials[4]} />
               <TestimonialCard testimonial={testimonials[5]} />
             </div>
@@ -88,7 +88,7 @@ export default function Testimonials() {
     
           {/* View All Button */}
           <div className="flex justify-center mt-10">
-          <button className="mt-10 sm:mt-0 bg-purple-300 text-purple-900 font-semibold px-6 py-3 rounded-lg transform transition-all duration-300 hover:scale-105 hover:brightness-110">
+          <button className="mt-10 sm:mt-5 bg-purple-300 text-purple-900 font-semibold px-6 py-3 rounded-lg transform transition-all duration-300 hover:scale-105 hover:brightness-110">
           View all
         </button>
           </div>
@@ -99,8 +99,8 @@ export default function Testimonials() {
     const TestimonialCard = ({ testimonial }) => {
       return (
         <div
-          style={{ backgroundColor: testimonial.bgColor, borderColor: testimonial.borderColor }}
-          className="relative p-6 rounded-[27px] border shadow-lg w-full max-w-[400px] mx-auto md:mx-0"
+          style={{ backgroundColor: testimonial.bgColor, borderColor: testimonial.borderColor+"80" }}
+          className="relative p-6 rounded-[20px] border shadow-lg w-full max-w-[400px] mx-auto md:mx-0"
         >
           {/* Quote Icon */}
           <FaQuoteLeft 
@@ -109,7 +109,7 @@ export default function Testimonials() {
           />
     
           {/* Text Content */}
-          <div className="h-full flex items-center justify-center text-base md:text-md lg:text-lg sm:text-sm font-semibold font-['Roboto'] pb-16 pt-5 px-3 text-left"
+          <div className="h-full flex items-center justify-center text-base md:text-medium lg:text-lg sm:text-sm font-medium font-['Roboto'] pb-16 pt-5 px-3 text-left"
             style={{ color: testimonial.borderColor }}
           >
             "{testimonial.text}"
