@@ -66,7 +66,7 @@ export default function Testimonials() {
     return (
       <section className="bg-[#fdf9f6] py-20 pt-[140px] pb-[160px] relative">
         <div className="w-full max-w-[1200px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-3 px-10">
             {/* Column 1 - Small, Large */}
             <div className="flex flex-col gap-3">
               <TestimonialCard testimonial={testimonials[0]} />
