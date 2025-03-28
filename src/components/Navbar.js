@@ -43,9 +43,7 @@ const Navbar = () => {
         <button className="px-6 py-3 bg-[#C2AAFA] text-[#3C2A7B] font-semibold rounded-lg text-lg transition-all duration-300 transform hover:bg-[#A179D5] shadow-lg">
           Register
         </button>
-        <button className="px-6 py-3 bg-[#4D3E78] text-white font-semibold rounded-lg text-lg transition-all duration-300 transform hover:bg-[#3A2C5A] shadow-lg">
-          Sign Up
-        </button>
+        
       </div>
 
       {/* Sidebar (Mobile & Tablet View) */}
@@ -86,9 +84,6 @@ const Navbar = () => {
           <div className="mt-6 flex space-x-4">
             <button className="px-6 py-3 bg-[#C2AAFA] text-[#3C2A7B] font-semibold rounded-lg text-lg transition-all duration-300 transform hover:bg-[#A179D5] shadow-lg">
               Register
-            </button>
-            <button className="px-6 py-3 bg-[#4D3E78] text-white font-semibold rounded-lg text-lg transition-all duration-300 transform hover:bg-[#3A2C5A] shadow-lg">
-              Sign Up
             </button>
           </div>
         </div>
