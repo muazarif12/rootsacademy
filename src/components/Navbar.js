@@ -40,10 +40,12 @@ const Navbar = () => {
 
       {/* Buttons - desktop only */}
       <div className="hidden lg:flex space-x-6">
-        <button className="px-6 py-3 bg-[#C2AAFA] text-[#3C2A7B] font-semibold rounded-lg text-lg transition-all duration-300 transform hover:bg-[#A179D5] shadow-lg">
+        <Link
+          to="/register"
+          className="px-6 py-3 bg-[#C2AAFA] text-[#3C2A7B] font-semibold rounded-lg text-lg transition-all duration-300 transform hover:bg-[#A179D5] shadow-lg"
+        >
           Register
-        </button>
-        
+        </Link>
       </div>
 
       {/* Sidebar (Mobile & Tablet View) */}
@@ -82,9 +84,13 @@ const Navbar = () => {
 
           {/* Buttons in Sidebar */}
           <div className="mt-6 flex space-x-4">
-            <button className="px-6 py-3 bg-[#C2AAFA] text-[#3C2A7B] font-semibold rounded-lg text-lg transition-all duration-300 transform hover:bg-[#A179D5] shadow-lg">
+            <Link
+              to="/register"
+              onClick={toggleSidebar}
+              className="px-6 py-3 bg-[#C2AAFA] text-[#3C2A7B] font-semibold rounded-lg text-lg transition-all duration-300 transform hover:bg-[#A179D5] shadow-lg"
+            >
               Register
-            </button>
+            </Link>
           </div>
         </div>
       </div>
