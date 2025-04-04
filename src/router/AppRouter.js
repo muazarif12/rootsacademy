@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import Results from "../pages/Results";
 import Register from "../pages/Register";
 import Contact from "../pages/Contact";
+import Pricing from "../pages/Pricing"
 
 const AppRouter = () => {
   return (
@@ -15,6 +16,8 @@ const AppRouter = () => {
         <Route path="/results" element={<Results />} />
         <Route path="/register" element={<Register />} />
         <Route path="/contact" element= {<Contact/>}/>
+        <Route path="/pricing" element= {<Pricing/>}/>
+
 
       </Routes>
     </Router>
