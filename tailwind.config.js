@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'Inter_Tight': ['"Inter Tight"', 'sans-serif'],
+        'Inter_Tight': ['"Inter Tight"', "Kumbh Sans",'sans-serif'],
       },
     },
   },
