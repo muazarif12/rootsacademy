@@ -50,20 +50,24 @@ const ContactForm = () => {
   return (
     <div className="flex flex-col md:flex-row w-full max-w-7xl mx-auto my-10 p-8 rounded-lg shadow-lg">
       {/* Left Side: Contact Info */}
-      <div className="md:w-1/2 p-10 rounded-lg">
-        <h2 className="text-4xl font-bold text-gray-700">Contact Us</h2>
-        <p className="text-gray-600 mt-3 text-lg">
-          We would love to speak with you. Feel free to reach out using the details below.
-        </p>
+      <div className="md:w-1/2 px-5 py-3 rounded-lg ">
+      <h1 className="text-[45px] font-bold text-[#4D3E77] leading-[1.1] tracking-normal lg:pt-5">
+      
+          Contact Us
+      </h1> 
+      <p className="lg:text-[20px]  text-[#4d3e78] leading-[1.3] font-normal max-w-[40rem] mx-auto mt-5">
+      We would love to speak with you. Feel free to reach out using the details below.
+      </p>
+        
 
         {/* Contact Details */}
-        <h3 className="mt-6 text-2xl font-semibold text-gray-700">Get in touch</h3>
-        <div className="flex items-center mt-3 text-gray-600 text-lg">
-          <FaPhone className="mr-2 text-gray-500" />
+        <h3 className="mt-6 text-2xl font-semibold  text-[#4d3e78]">Get in touch</h3>
+        <div className="flex items-center mt-3 text-[#4d3e78] text-lg">
+          <FaPhone className="mr-2 text-[#4D3E77]" />
           +92 3252549968
         </div>
-        <div className="flex items-center mt-3 text-gray-600 text-lg">
-          <FaEnvelope className="mr-2 text-gray-500" />
+        <div className="flex items-center mt-3 text-[#4d3e78] text-lg">
+          <FaEnvelope className="mr-2 text-[#4D3E77]" />
           team@roots-academy.org
         </div>
 
@@ -76,22 +80,22 @@ const ContactForm = () => {
       </div>
 
       {/* Right Side: Contact Form */}
-      <div className="md:w-1/2 p-5 rounded-lg shadow-md">
+      <div className="md:w-1/2 p-5 rounded-lg shadow-md bg-white">
         <form onSubmit={handleSubmit}>
           {/* Name */}
-          <label className="text-gray-600 text-lg font-semibold">Student's Full Name</label>
+          <label className="text-[#4D3E77] text-lg font-semibold">Student's Full Name</label>
           <div className="flex gap-4">
             <input type="text" placeholder="First Name" className="w-1/2 p-4 border rounded-md text-lg" required />
             <input type="text" placeholder="Last Name" className="w-1/2 p-4 border rounded-md text-lg" required />
           </div>
 
           {/* Email */}
-          <label className="text-gray-600 text-lg font-semibold mt-5 block">Email Address</label>
+          <label className="text-[#4D3E77] text-lg font-semibold mt-5 block">Email Address</label>
           <input type="email" placeholder="Email Address" className="w-full p-4 border rounded-md text-lg" required />
 
           {/* Mobile Number */}
-          <label className="text-gray-600 text-lg font-semibold mt-5 block">Mobile Number</label>
-          <div className="flex items-center text-sm gap-1">
+          <label className="text-[#4D3E77] text-lg font-semibold mt-5 block">Mobile Number</label>
+          <div className="flex items-center text-sm gap-1 text-[#4D3E77]">
             <Select
               options={countryOptions}
               value={selectedCountry}
@@ -100,18 +104,18 @@ const ContactForm = () => {
               className="w-12px"
               menuPortalTarget={document.body}
             />
-            <input type="tel" placeholder="Mobile Number" className="w-2/3 p-4 border rounded-md text-md" required />
+            <input type="tel" placeholder="Mobile Number" className="w-2/3 p-4 border rounded-md text-md text-[#4D3E77]" required />
           </div>
 
           {/* Dropdown */}
-          <label className="text-gray-600 text-md font-semibold mt-5 block">Select</label>
+          <label className="text-[#4D3E77] text-md font-semibold mt-5 block">Select</label>
           <select className="w-full p-2 border rounded-md text-md" required>
             <option value="">-Select-</option>
           </select>
 
           {/* Message */}
-          <label className="text-gray-600 text-lg font-semibold mt-5 block">Your Message</label>
-          <textarea placeholder="Your Message" className="w-full p-4 border rounded-md h-28 text-lg" required></textarea>
+          <label className="text-[#4D3E77] text-lg font-semibold mt-5 block">Your Message</label>
+          <textarea placeholder="Your Message" className="w-full p-4 border rounded-md h-28 text-lg text-[#4D3E77]" required></textarea>
 
           {/* hCaptcha */}
           <div className="mt-5 flex justify-center">

@@ -171,7 +171,7 @@ export default TeachersNTeam;
 
 
 const TeacherCard = ({ name, subject, university, experience, image }) => (
-    <div className="flex flex-col items-center text-center gap-1 max-w-xs">
+    <div className="flex flex-col items-center text-center gap-1 max-w-xs transition duration-300  hover:scale-105">
       <div className="lg:w-45 lg:h-45  ">
         <img src={image} alt={name} />
       </div>
