@@ -58,25 +58,31 @@ const RegistrationForm = () => {
 
   return (
 
-    <div className="max-w-6xl w-full mx-auto py-10 px-6 bg-[#F4F5F9]">
-      <h2 className="text-3xl font-semibold text-center mb-2 font-['Inter_Tight']">Student Registration Form</h2>
+    <div className="max-w-6xl w-full mx-auto py-10 px-6 bg-[#F2F3F8]">
+      <h2 className="text-3xl font-semibold text-center mb-16 font-['Inter_Tight']">Student Registration Form</h2>
 
-      <div className="flex justify-center mb-14">
-        <img src={underline_design} alt="underline_design" className="h-4 w-auto" />
-      </div>
-
+      
       <div className="mb-6">
         <p className="font-medium font-['Inter_Tight'] mb-10"><span className="text-red-500">*</span> indicates required fields</p>
 
         {/* Step indicators */}
+        {/* Step indicators */}
         <div className="flex space-x-10 mb-8">
-          <div className={`flex items-center space-x-2 ${step === 1 ? "font-bold" : "font-['Inter_Tight']"}`}>
-            <div className={`w-8 h-8 rounded-full flex items-center justify-center border ${step === 1 ? "bg-gray-200" : ""}`}>1</div>
-            <span>Step “A”</span>
+          <div className={`flex items-center space-x-2 ${step >= 1 ? "font-bold" : "font-['Inter_Tight']"}`}>
+            <div className={`w-8 h-8 rounded-full flex items-center justify-center border ${step >= 1 ? "bg-[#B9BECA]" : ""}`}>
+              {step >= 2 ? (
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+              ) : (
+                "1"
+              )}
+            </div>
+            <span>Step "A"</span>
           </div>
           <div className={`flex items-center space-x-2 ${step === 2 ? "font-bold" : "font-['Inter_Tight']"}`}>
-            <div className={`w-8 h-8 rounded-full flex items-center justify-center border ${step === 2 ? "bg-gray-200" : ""}`}>2</div>
-            <span>Step “B”</span>
+            <div className={`w-8 h-8 rounded-full flex items-center justify-center border ${step === 2 ? "bg-[#B9BECA]" : ""}`}>2</div>
+            <span>Step "B"</span>
           </div>
         </div>
       </div>
@@ -86,39 +92,39 @@ const RegistrationForm = () => {
           <div className="block space-y-6 md:space-y-0 md:grid md:grid-cols-2 md:gap-6">
             {/* Student Info Fields */}
             <div>
-              <label className="block font-medium font-['Inter_Tight']" >First Name <span className="text-red-500">*</span></label>
+              <label className="block font-semibold font-['Inter_Tight']" >First Name <span className="text-red-500">*</span></label>
               <input type="text" name="firstName" value={formData.firstName} onChange={handleInputChange} className="w-full border-b border-[#6B5CA5] bg-transparent focus:outline-none focus:border-[#6B5CA5] placeholder:text-sm pt-1 mt-2 font-['Inter_Tight']" />
             </div>
             <div>
-              <label className="block font-medium font-['Inter_Tight']">Last Name  </label>
+              <label className="block font-semibold font-['Inter_Tight']">Last Name <span className="text-red-500">*</span>  </label>
               <input type="text" name="lastName" value={formData.lastName} onChange={handleInputChange} className="w-full border-b border-[#6B5CA5] bg-transparent focus:outline-none focus:border-[#6B5CA5] placeholder:text-sm pt-1 mt-2 font-['Inter_Tight']" />
             </div>
             <div>
-              <label className="block font-medium font-['Inter_Tight']">Country Of Residence <span className="text-red-500">*</span></label>
+              <label className="pt-6 block font-semibold font-['Inter_Tight']">Country Of Residence <span className="text-red-500">*</span></label>
               <input type="text" name="countryOfResidence" value={formData.countryOfResidence} onChange={handleInputChange} className="w-full border-b border-[#6B5CA5] bg-transparent focus:outline-none focus:border-[#6B5CA5] placeholder:text-sm pt-1  mt-2 font-['Inter_Tight']" />
             </div>
             <div>
-              <label className="block font-medium font-['Inter_Tight']">School / College Name <span className="text-red-500">*</span></label>
+              <label className="pt-6 block font-semibold font-['Inter_Tight']">School / College Name <span className="text-red-500">*</span></label>
               <input type="text" name="schoolName" value={formData.schoolName} onChange={handleInputChange} className="w-full border-b border-[#6B5CA5] bg-transparent focus:outline-none focus:border-[#6B5CA5] placeholder:text-sm pt-1 mt-2 font-['Inter_Tight']" />
             </div>
             <div>
-              <label className="block font-medium font-['Inter_Tight']">Appearing for CAIE Examination <span className="text-red-500">*</span></label>
-              <select name="caieExam" value={formData.caieExam} onChange={handleInputChange} className="w-full border-b border-[#6B5CA5] bg-transparent focus:outline-none focus:border-[#6B5CA5] placeholder:text-sm pt-[0.565rem] mt-2 font-['Inter_Tight']">
+              <label className="pt-6 block font-semibold font-['Inter_Tight']">Appearing for CAIE Examination <span className="text-red-500">*</span></label>
+              <select name="caieExam" value={formData.caieExam} onChange={handleInputChange} className="w-full border-b border-[#6B5CA5] bg-transparent focus:outline-none focus:border-[#6B5CA5] placeholder:text-sm pt-[0.535rem] mt-2 font-['Inter_Tight']">
                 <option value="">-Please Select-</option>
                 <option value="O Level">O Level</option>
                 <option value="A Level">A Level</option>
               </select>
             </div>
             <div>
-              <label className="block font-medium font-['Inter_Tight']">Enrolling for <span className="text-red-500">*</span></label>
-              <select name="enrollingFor" value={formData.enrollingFor} onChange={handleInputChange} className="w-full border-b border-[#6B5CA5] bg-transparent focus:outline-none focus:border-[#6B5CA5] placeholder:text-sm pt-[0.565rem] mt-2 font-['Inter_Tight']">
+              <label className="pt-6 block font-semibold font-['Inter_Tight']">Enrolling for <span className="text-red-500">*</span></label>
+              <select name="enrollingFor" value={formData.enrollingFor} onChange={handleInputChange} className="w-full border-b border-[#6B5CA5] bg-transparent focus:outline-none focus:border-[#6B5CA5] placeholder:text-sm pt-[0.535rem] mt-2 font-['Inter_Tight']">
                 <option value="">-Please Select-</option>
                 <option value="2025">May/June 2025</option>
                 <option value="2025-nov">Oct/Nov 2025</option>
               </select>
             </div>
             <div className="col-span-2 mt-6">
-              <label className="block mb-1 font-medium font-['Inter_Tight']">Subjects <span className="text-red-500">*</span></label>
+              <label className="pt-6 block mb-1 font-semibold font-['Inter_Tight']">Subjects <span className="text-red-500">*</span></label>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-2 font-medium font-['Inter_Tight']">
                 {[
                   "Physics (0625)",
@@ -139,23 +145,23 @@ const RegistrationForm = () => {
               </div>
             </div>
             <div className="mt-6">
-              <label className="block font-medium font-['Inter_Tight']">Student's Contact Number <span className="text-red-500">*</span></label>
+              <label className="pt-6 block font-semibold font-['Inter_Tight']">Student's Contact Number <span className="text-red-500">*</span></label>
               <input type="text" name="contactNumber" value={formData.contactNumber} onChange={handleInputChange} className="w-full border-b border-[#6B5CA5] bg-transparent focus:outline-none focus:border-[#6B5CA5] placeholder:text-sm pt-1 mt-2 font-['Inter_Tight']" />
             </div>
             <div className="mt-6">
-              <label className="block font-medium font-['Inter_Tight']">Student's Email Address <span className="text-red-500">*</span></label>
+              <label className="pt-6 block font-semibold font-['Inter_Tight']">Student's Email Address <span className="text-red-500">*</span></label>
               <input type="email" name="email" value={formData.email} onChange={handleInputChange} className="w-full border-b border-[#6B5CA5] bg-transparent focus:outline-none focus:border-[#6B5CA5] placeholder:text-sm pt-1 mt-2 font-['Inter_Tight']" />
             </div>
             <div className="mt-6">
-              <label className="block font-medium font-['Inter_Tight']">City <span className="text-red-500">*</span></label>
+              <label className="pt-6 block font-semibold font-['Inter_Tight']">City <span className="text-red-500">*</span></label>
               <input type="text" name="city" value={formData.city} onChange={handleInputChange} className="w-full border-b border-[#6B5CA5] bg-transparent focus:outline-none focus:border-[#6B5CA5] placeholder:text-sm pt-1 mt-2 font-['Inter_Tight']" />
             </div>
             <div className="mt-6">
-              <label className="block font-medium font-['Inter_Tight']">Country <span className="text-red-500">*</span></label>
+              <label className="pt-6 block font-semibold font-['Inter_Tight']">Country <span className="text-red-500">*</span></label>
               <input type="text" name="country" value={formData.country} onChange={handleInputChange} className="w-full border-b border-[#6B5CA5] bg-transparent focus:outline-none focus:border-[#6B5CA5] placeholder:text-sm pt-1 mt-2 font-['Inter_Tight']" />
             </div>
             <div className="col-span-2 mt-6">
-              <label className="block mb-1 font-medium font-['Inter_Tight']">Preferred Teaching Language</label>
+              <label className="pt-6 block mb-1 font-semibold font-['Inter_Tight']">Preferred Teaching Language</label>
               <label>
                 <input type="checkbox" name="teachingLanguage" value="Urdu" onChange={handleInputChange} /> Urdu
               </label>
@@ -172,28 +178,28 @@ const RegistrationForm = () => {
         {step === 2 && (
           <div className="block space-y-6 md:space-y-0 md:grid md:grid-cols-2 md:gap-6">
             <div>
-              <label className="block block font-medium font-['Inter_Tight']">Relationship with Student <span className="text-red-500">*</span></label>
-              <select name="guardianRelation" value={formData.guardianRelation} onChange={handleInputChange} className="w-full border-b border-[#6B5CA5] bg-transparent focus:outline-none focus:border-[#6B5CA5] placeholder:text-sm pt-[0.565rem] mt-2 font-['Inter_Tight']">
-                <option value="">-Please Select-</option> 
+              <label className="block block font-semibold font-['Inter_Tight']">Relationship with Student <span className="text-red-500">*</span></label>
+              <select name="guardianRelation" value={formData.guardianRelation} onChange={handleInputChange} className="w-full border-b border-[#6B5CA5] bg-transparent focus:outline-none focus:border-[#6B5CA5] placeholder:text-sm pt-[0.535rem] mt-2 font-['Inter_Tight']">
+                <option value="">-Please Select-</option>
                 <option value="Parent">Parent</option>
                 <option value="Sibling">Sibling</option>
                 <option value="Guardian">Guardian</option>
               </select>
             </div>
             <div>
-              <label className="block block font-medium font-['Inter_Tight']">Guardian's Full Name <span className="text-red-500">*</span></label>
+              <label className="block block font-semibold font-['Inter_Tight']">Guardian's Full Name <span className="text-red-500">*</span></label>
               <input type="text" name="guardianName" value={formData.guardianName} onChange={handleInputChange} className="w-full border-b border-[#6B5CA5] bg-transparent focus:outline-none focus:border-[#6B5CA5] placeholder:text-sm pt-1 mt-2 font-['Inter_Tight']" />
             </div>
             <div>
-              <label className="block block font-medium font-['Inter_Tight']">Phone <span className="text-red-500">*</span></label>
+              <label className="pt-6 block block font-semibold font-['Inter_Tight']">Phone <span className="text-red-500">*</span></label>
               <input type="text" name="guardianPhone" value={formData.guardianPhone} onChange={handleInputChange} className="w-full border-b border-[#6B5CA5] bg-transparent focus:outline-none focus:border-[#6B5CA5] placeholder:text-sm pt-1 mt-2 font-['Inter_Tight']" />
             </div>
             <div>
-              <label className="block block font-medium font-['Inter_Tight']">Email <span className="text-red-500">*</span></label>
+              <label className="pt-6 block block font-semibold font-['Inter_Tight']">Email <span className="text-red-500">*</span></label>
               <input type="email" name="guardianEmail" value={formData.guardianEmail} onChange={handleInputChange} className="w-full border-b border-[#6B5CA5] bg-transparent focus:outline-none focus:border-[#6B5CA5] placeholder:text-sm pt-1 mt-2 font-['Inter_Tight']" />
             </div>
             <div className="col-span-2">
-              <label className="block block font-medium font-['Inter_Tight']">How did you get to know about us? <span className="text-red-500">*</span></label>
+              <label className="pt-6 block block font-semibold font-['Inter_Tight']">How did you get to know about us? <span className="text-red-500">*</span></label>
               <select name="referralSource" value={formData.referralSource} onChange={handleInputChange} className="w-full border-b border-[#6B5CA5] bg-transparent focus:outline-none focus:border-[#6B5CA5] placeholder:text-sm pt-[0.565rem] mt-2 font-['Inter_Tight']">
                 <option value="">-Please Select-</option>
                 <option value="Facebook">Facebook</option>
@@ -203,7 +209,7 @@ const RegistrationForm = () => {
               </select>
             </div>
             <div className="col-span-2">
-              <label className="block block font-medium font-['Inter_Tight']">Referral Code <span className="text-sm text-gray-500">(if any)</span></label>
+              <label className="pt-6 block block font-semibold font-['Inter_Tight']">Referral Code <span className="text-sm text-gray-500">(if any)</span></label>
               <input type="text" name="referralCode" value={formData.referralCode} onChange={handleInputChange} className="w-full border-b border-[#6B5CA5] bg-transparent focus:outline-none focus:border-[#6B5CA5] placeholder:text-sm pt-1 mt-2 font-['Inter_Tight']" />
             </div>
           </div>
