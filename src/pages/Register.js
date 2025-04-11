@@ -3,8 +3,8 @@ import RegistrationForm from "../components/RegistrationForm";
 import Footer from "../components/Footer";
 const Register = () => {
   return (
-    <div className="min-h-screen bg-[#F2F3F8]">
-      <div className="max-w-6xl mx-auto py-10 px-6">
+    <div className="min-h-screen bg-[#FDF9F6]">
+      <div className="max-w-6xl mx-auto py-10 px-6 ">
         <RegistrationForm />
       </div>
       <div>

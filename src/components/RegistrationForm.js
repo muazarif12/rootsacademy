@@ -58,7 +58,7 @@ const RegistrationForm = () => {
 
   return (
 
-    <div className="max-w-6xl w-full mx-auto py-10 px-6 bg-[#F2F3F8]">
+    <div className="max-w-6xl w-full mx-auto py-10 px-6  rounded-lg shadow-lg">
       <h2 className="text-3xl font-semibold text-center mb-16 font-['Inter_Tight']">Student Registration Form</h2>
 
       
