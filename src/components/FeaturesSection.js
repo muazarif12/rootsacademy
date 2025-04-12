@@ -57,7 +57,7 @@ const features = [
 
 const FeaturesSection = () => {
   return (
-    <section className="bg-[#fdf9f6] py-20 mt-0 pt-[140px] px-[5%] pb-[160px] relative">
+    <section className=" py-20 mt-0 pt-[140px] px-[5%] pb-[160px] relative">
       <div className="w-full max-w-[1200px] mx-auto">
         {/* Heading Section */}
         <div className="text-3xl font-semibold text-center mb-2 font-['Inter_Tight']">

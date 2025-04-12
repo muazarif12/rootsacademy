@@ -1,6 +1,6 @@
 const GuaranteeSection = () => {
     return (
-        <section className="bg-[#FFF9F6] text-center px-6 sm:px-10 md:px-20 py-16 font-['Inter_Tight']">
+        <section className=" text-center px-6 sm:px-10 md:px-20 py-16 font-['Inter_Tight']">
             <h2 className="text-[22px] sm:text-[26px] md:text-[32px] lg:text-[38px] font-semibold text-[#4D3E77] leading-[1.2] sm:leading-[1.1] tracking-normal mt-0 mb-0 max-w-[95%] sm:max-w-[90%] md:max-w-[48rem] mx-auto">
                 Risk-free, 7 day money back guarantee.
             </h2>

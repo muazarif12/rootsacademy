@@ -49,7 +49,7 @@ const Flashcards = () => {
   ];
 
   return (
-    <section className="bg-[#fdf9f6] py-12 px-6">
+    <section className=" py-12 px-6">
       <div className="max-w-[1200px] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {cards.map((card, index) => (
           <div key={index} className="bg-[#4D3E78] text-white p-6 rounded-[20px] shadow-lg relative flex flex-col items-center text-center font-medium font-['Roboto'] ">

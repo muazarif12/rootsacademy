@@ -85,7 +85,7 @@ export default function Testimonials() {
     ];
 
     return (
-      <section className="bg-[#fdf9f6] py-20 pt-[140px] pb-[160px] relative">
+      <section className="py-20 pt-[140px] pb-[160px] relative">
         <div className="w-full max-w-[1200px] mx-auto">
           <div className="text-center mb-10 font-['Roboto'] px-4">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#4D3E77] leading-tight tracking-normal mt-0 mb-0">

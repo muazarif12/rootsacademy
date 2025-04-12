@@ -1,6 +1,6 @@
 const Footer = () => {
     return (
-      <footer className="bg-[#f9f5f2] text-black py-10 px-6">
+      <footer className=" text-black py-10 px-6">
         <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between">
           
           {/* Left Section - Links & Subjects */}

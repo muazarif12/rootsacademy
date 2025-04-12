@@ -14,14 +14,14 @@ import Footer from "../components/Footer";
 const Home = () => {
   return (
     <div className="min-h-screen  bg-[#FDF9F6]" > 
-      <div className=" pb-20">  {/* Added extra padding to bottom */}
+      <div className=" pb-20">  {/* Added extra padding to bottom bg-[#FDF9F6]*/}
         <HeroSection />
         <SubjectButtons />
         <CoursePreview />
       </div>
 
       {/* White Background Section with extra spacing on top */}
-      <div className="bg-[#FDF9F6] pt-24">
+      <div className="pt-24">
         <StatsSection />
         <Testimonials />
       </div>

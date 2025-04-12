@@ -31,7 +31,7 @@ const Testimonials = ({ testimonials = testimonialsData }) => {
   }
 
   return (
-    <section className="bg-[#fdf9f6] py-20 px-[5%]">
+    <section className=" py-20 px-[5%]">
       <div className="w-full max-w-[1200px] mx-auto">
         {/* Heading Section */}
         <div className="text-center mb-16 font-['Inter_Tight']">
