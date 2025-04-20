@@ -10,6 +10,8 @@ const teachers = [
     university: "NUST",
     experience: "Teaching Experience 7+ Years",
     image: "https://online-tuitions.com/wp-content/uploads/2025/01/hassan-241x300.png",
+    //bgColor:"bg-orange-100" 
+
   },
   {
     name: "Hamza",
@@ -17,6 +19,7 @@ const teachers = [
     university: "NED, IBA",
     experience: "Teaching Experience 7+ Years",
     image: "https://online-tuitions.com/wp-content/uploads/2025/01/hamza-241x300.png",
+
   },
   {
     name: "Hamna Hassan",
@@ -169,19 +172,32 @@ const TeachersNTeam = () => (
 
 export default TeachersNTeam;
 
-
-const TeacherCard = ({ name, subject, university, experience, image }) => (
-    <div className="flex flex-col items-center text-center gap-1 max-w-xs transition duration-300  hover:scale-105">
+const TeacherCard = ({ name, subject, university, experience, image, bgColor = "bg-white" }) => (
+  <div className="relative lg:w-64 lg:h-[370px] max-w-xs rounded-[20px] overflow-hidden shadow-md group transition-all duration-300 cursor-pointer">
+    
+    {/* Image and Name (Always visible) */}
+    <div className="flex flex-col items-center text-center gap-1 max-w-xs">
       <div className="lg:w-45 lg:h-45  ">
         <img src={image} alt={name} />
       </div>
-      <h3 className="lg:text-[30px]  text-[#4d3e78]  font-bold  mx-auto ">{name}</h3>
-      <p className="text-medium text-[#4d3e78]  ">{subject}</p>
-      <p className="text-medium text-[#4d3e78] ">{university}</p>
-      <p className="text-medium text-[#4d3e78]  font-semibold">{experience}</p>
     </div>
-  );
-  
+
+    
+  {/* Bottom Card: shows name initially, expands on hover */}
+  <div
+    className={`rounded-[10px] bg-[#FDF9F6] absolute bottom-0 left-0 w-full px-4 overflow-hidden  text-[#4d3e78] text-center transition-all duration-500 h-[60px]  group-hover:h-[160px] `}
+  >
+    <div className="flex flex-col justify-center items-center gap-1 py-3">
+    <h3 className="lg:text-[30px]  text-[#4d3e78]  font-bold  mx-auto ">{name}</h3>      
+    <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <p className="text-sm">{subject}</p>
+        <p className="text-sm">{university}</p>
+        <p className="text-sm font-semibold">{experience}</p>
+      </div>
+    </div>
+  </div>
+</div>
+);
 
 
   

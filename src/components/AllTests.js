@@ -97,9 +97,9 @@ export default function Testimonials() {
             </h1>
             </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-3 px-10">
+            <div className="columns-1 md:columns-2 lg:columns-3 gap-4 px-10 space-y-4">
   {testimonials.map((testimonial, index) => (
-    <div key={index} className="flex flex-col gap-3">
+    <div key={index} className="break-inside-avoid">
       <TestimonialCard testimonial={testimonial} />
     </div>
   ))}
