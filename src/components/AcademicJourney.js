@@ -1,4 +1,5 @@
 import React from "react";
+import { BiDownArrowAlt } from "react-icons/bi";
 
 const AcademicJourney = () => {
   return (
@@ -8,20 +9,20 @@ const AcademicJourney = () => {
         <h1 className="text-[36px] sm:text-[42px] md:text-[50px] lg:text-[60px] font-bold text-[#4D3E77] leading-[1.2]">
           Ready To{" "}
           <span className="bg-[#4D3E77] text-white px-2 py-1 rounded-md inline-block">
-            Transform
+            Achieve
           </span>{" "}
-          Your Academic Journey?
+          Your Academic Dreams?
         </h1>
         <p className="text-[#4D3E78] text-[20px] sm:text-[24px] md:text-[28px] lg:text-[32px] font-light mt-4">
-          Get instant access to expert-led courses, timed crash courses, and
-          comprehensive resources that make A/A* grades achievable.
+          complete the registration process and get instant access to premium resources and tools for IGCSE, O-Level and A-Level Students.
         </p>
       </div>
 
       {/* Button Section */}
-      <div className="mt-6">
+      <div className="mt-10">
         <button className="w-[280px] sm:w-[320px] md:w-[360px] lg:w-[382px] h-[70px] md:h-[90px] lg:h-[102px] bg-[#4D3E78] rounded-[20px] flex items-center justify-center text-white text-[20px] sm:text-[24px] md:text-[28px] lg:text-[32px] font-semibold transition duration-300 hover:bg-[#3b2e5a] hover:scale-105">
-          Start your A* journey
+         Install Now 
+         <BiDownArrowAlt className="mx-1 w-6 h-6 md:w-10 md:h-10"/>
         </button>
       </div>
 
