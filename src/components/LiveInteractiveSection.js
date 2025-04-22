@@ -78,11 +78,11 @@ const VideoCarouselSlick = () => {
         <section className=" py-24 px-4">
             <div className="text-center mb-16 font-['Inter_Tight']">
                 <h1 className="text-[41px] font-bold text-[#4D3E77] leading-[1.1] tracking-normal mt-0 mb-4 max-w-[48rem] mx-auto">
-                    Bringing The classroom to your screen Live and Interactive
+                Step Into <span className="bg-[#4D3E77] text-white px-1 rounded-md">A*</span> Success
                 </h1>
                 <p className="text-[23px] text-[#4d3e78] leading-[1.3] font-normal mt-0 mb-0 tracking-normal font-['Inter_Tight'] max-w-[44rem] mx-auto">
-                    Unlock the power of real-time learning with expert-led live classes! Engage in interactive
-                    discussions, get instant answers, and receive personalized guidance—all from home. Master A
+                    Unlock the power of real-time learning with expert led live classes! Engage in interactive
+                    discussions, get instant answers, and receive personalized guidance all from home. Master A
                     concepts like never before!
                 </p>
             </div>

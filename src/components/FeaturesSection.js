@@ -3,12 +3,12 @@ import React from "react";
 const features = [
   {
     title: "Replay and Resolve",
-    description: "Learn from teachers who've helped students score A*’s for 26+ years. Our video lessons break down complex topics into digestible chunks that stick.",
+    description: "Join live classes in real time for direct support, instant feedback, and deeper understanding. Ask questions, engage with experienced  teacher, and stay fully connected to your learning..",
     videoSrc: "https://cdn.prod.website-files.com/6784e13057450193c3cbe00a/67920fe46e78e143c78d4568_Chemistry%20Short%20Video%20Lecture-transcode.mp4",
     poster: "https://cdn.prod.website-files.com/6784e13057450193c3cbe00a/67920fe46e78e143c78d4568_Chemistry%20Short%20Video%20Lecture-poster-00001.jpg",
     bgColor: "bg-red-100",
     borderColor: "border-red-300",
-    textColor: "  ",
+    textColor: " text-pink-800",
     width: "w-[561.6px]",
     height: "h-[475px]",
     padding: "p-6",
@@ -16,7 +16,7 @@ const features = [
   },
   {
     title: "Bit Sized Assignments",
-    description: "Watch top teachers solve exam questions step-by-step, showing you exactly what examiners want.",
+    description: "Tackle topical past paper questions step-by-step with our teacher-guided walkthroughs. These bite-sized assignments are crafted to mirror real exam patterns, helping you understand examiner expectations and improve accuracy. Top teachers solve exam questions step-by-step, showing you exactly what examiners want.",
     videoSrc: "https://cdn.prod.website-files.com/66a9d3b309fadf5baa213c6b/67a614f6c2304ee3cb6879f8_econcrop-transcode.mp4",
     poster: "https://cdn.prod.website-files.com/66a9d3b309fadf5baa213c6b/67a614f6c2304ee3cb6879f8_econcrop-poster-00001.jpg",
     bgColor: "bg-green-100",
@@ -28,8 +28,8 @@ const features = [
     borderRadius: "rounded-[15px]",
   },
   {
-    title: "Expert Support",
-    description: "Stuck on a question? Get help anytime, anywhere - on your phone, laptop, or tablet.",
+    title: "Instant Support, 24/7",
+    description: "Confused about a topic? Whether it’s late at night or early morning, get answers by messaging your assistant or teacher anytime. on a question? Get help anytime, anywhere - on your phone, laptop, or tablet.",
     videoSrc: "https://cdn.prod.website-files.com/6784e13057450193c3cbe00a/679213e703317cd1456221df_Chemistry%20Short%20Academic%20Support-transcode.mp4",
     poster: "https://cdn.prod.website-files.com/6784e13057450193c3cbe00a/679213e703317cd1456221df_Chemistry%20Short%20Academic%20Support-poster-00001.jpg",
     bgColor: "bg-blue-100",
@@ -41,8 +41,8 @@ const features = [
     borderRadius: "rounded-[15px]",
   },
   {
-    title: "Timed Crash Courses",
-    description: "Turn months of revision into a clear, manageable plan with our 90 & 60-day crash courses. Perfect for busy students aiming for top grades.",
+    title: "Real Practice. Real Feedback.",
+    description: "Submit tests and assignments on student portal, and receive detailed evaluations to guide your improvement. It's not just about practice—it's about progress.",
     videoSrc: "https://cdn.prod.website-files.com/6784e13057450193c3cbe00a/67921404b91f5fc62e6a297b_Chemistry%20Short%20Crash%20Courses-transcode.mp4",
     poster: "https://cdn.prod.website-files.com/6784e13057450193c3cbe00a/67921404b91f5fc62e6a297b_Chemistry%20Short%20Crash%20Courses-poster-00001.jpg",
     bgColor: "bg-yellow-100",
@@ -84,7 +84,7 @@ const FeaturesSection = () => {
                 <h2 className={`text-[20px] font-semibold ${features[0].textColor}`}>
                   {features[0].title}
                 </h2>
-                <p className="text-[15px] text-gray-700 mt-1">
+                <p className="text-[15px] text-gray-900 mt-1">
                   {features[0].description}
                 </p>
               </div>
@@ -107,7 +107,7 @@ const FeaturesSection = () => {
                 <h2 className={`text-[20px] font-semibold ${features[1].textColor}`}>
                   {features[1].title}
                 </h2>
-                <p className="text-[15px] text-gray-700 mt-1">
+                <p className="text-[15px] text-gray-900 mt-1">
                   {features[1].description}
                 </p>
               </div>
@@ -133,7 +133,7 @@ const FeaturesSection = () => {
                 <h2 className={`text-[20px] font-semibold ${features[2].textColor}`}>
                   {features[2].title}
                 </h2>
-                <p className="text-[15px] text-gray-700 mt-1">
+                <p className="text-[15px] text-gray-900 mt-1">    
                   {features[2].description}
                 </p>
               </div>
@@ -156,7 +156,7 @@ const FeaturesSection = () => {
                 <h2 className={`text-[20px] font-semibold ${features[3].textColor}`}>
                   {features[3].title}
                 </h2>
-                <p className="text-[15px] text-gray-700 mt-1">
+                <p className="text-[15px] text-gray-900 mt-1">
                   {features[3].description}
                 </p>
               </div>
