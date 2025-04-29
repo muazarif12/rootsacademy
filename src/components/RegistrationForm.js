@@ -23,6 +23,7 @@ const RegistrationForm = () => {
     referralSource: "",
     referralCode: "",
   });
+  const [errors, setErrors] = useState({});
 
   // Subject lists by curriculum
   const subjectsByCurriculum = {
@@ -77,6 +78,13 @@ const RegistrationForm = () => {
     ],
   };
 
+  const guardianRelationOptions = [
+    { value: "", text: "-Please Select-" },
+    { value: "Parent", text: "Parent" },
+    { value: "Sibling", text: "Sibling" },
+    { value: "Guardian", text: "Guardian" }
+  ];
+
   const handleTabChange = (selectedTab) => {
     setTab(selectedTab);
     // Reset to step 1 when changing tabs
@@ -102,6 +110,7 @@ const RegistrationForm = () => {
       referralSource: "",
       referralCode: "",
     });
+    setErrors({});
   };
 
   const handleInputChange = (e) => {
@@ -120,10 +129,80 @@ const RegistrationForm = () => {
     } else {
       setFormData((prev) => ({ ...prev, [name]: value }));
     }
+
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors(prev => {
+        const newErrors = {...prev};
+        delete newErrors[name];
+        return newErrors;
+      });
+    }
+  };
+
+  const validateStep1 = () => {
+    const newErrors = {};
+    const requiredFields = [
+      'firstName', 'lastName', 'countryOfResidence', 'schoolName', 
+      'enrollingFor', 'contactNumber', 'email', 'city', 'country'
+    ];
+
+    requiredFields.forEach(field => {
+      if (!formData[field]) {
+        newErrors[field] = 'This field is required';
+      }
+    });
+
+    // Email validation
+    if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+
+    // Phone number validation (basic)
+    if (formData.contactNumber && !/^[+\d][\d\s-]{7,}$/.test(formData.contactNumber)) {
+      newErrors.contactNumber = 'Please enter a valid phone number';
+    }
+
+    // Subjects validation
+    if (formData.subjects.length === 0) {
+      newErrors.subjects = 'Please select at least one subject';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const validateStep2 = () => {
+    const newErrors = {};
+    const requiredFields = [
+      'guardianRelation', 'guardianName', 'guardianPhone', 
+      'guardianEmail', 'referralSource'
+    ];
+
+    requiredFields.forEach(field => {
+      if (!formData[field]) {
+        newErrors[field] = 'This field is required';
+      }
+    });
+
+    // Email validation
+    if (formData.guardianEmail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.guardianEmail)) {
+      newErrors.guardianEmail = 'Please enter a valid email address';
+    }
+
+    // Phone number validation (basic)
+    if (formData.guardianPhone && !/^[+\d][\d\s-]{7,}$/.test(formData.guardianPhone)) {
+      newErrors.guardianPhone = 'Please enter a valid phone number';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
   const handleNext = () => {
-    if (step === 1) setStep(2);
+    if (validateStep1()) {
+      setStep(2);
+    }
   };
 
   const handlePrevious = () => {
@@ -132,8 +211,25 @@ const RegistrationForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Submitted Data:", formData);
-    // Add API call or action here
+    if (validateStep2()) {
+      console.log("Submitted Data:", formData);
+      // Add API call or action here
+    }
+  };
+
+  // Custom select handler for guardianRelation to prevent popup issues
+  const handleGuardianRelationChange = (e) => {
+    const value = e.target.value;
+    setFormData((prev) => ({ ...prev, guardianRelation: value }));
+    
+    // Clear error if it exists
+    if (errors.guardianRelation) {
+      setErrors(prev => {
+        const newErrors = {...prev};
+        delete newErrors.guardianRelation;
+        return newErrors;
+      });
+    }
   };
 
   return (
@@ -218,9 +314,10 @@ const RegistrationForm = () => {
                 value={formData.firstName}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6B5CA5] focus:border-transparent transition-all duration-200"
+                className={`w-full px-4 py-2 border ${errors.firstName ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6B5CA5] focus:border-transparent transition-all duration-200`}
                 placeholder="Enter your first name"
               />
+              {errors.firstName && <p className="text-red-500 text-xs mt-1">{errors.firstName}</p>}
             </div>
             <div className="relative">
               <label className="block font-semibold font-['Inter_Tight'] text-gray-700 mb-1">
@@ -232,9 +329,10 @@ const RegistrationForm = () => {
                 value={formData.lastName}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6B5CA5] focus:border-transparent transition-all duration-200"
+                className={`w-full px-4 py-2 border ${errors.lastName ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6B5CA5] focus:border-transparent transition-all duration-200`}
                 placeholder="Enter your last name"
               />
+              {errors.lastName && <p className="text-red-500 text-xs mt-1">{errors.lastName}</p>}
             </div>
             <div className="relative">
               <label className="block font-semibold font-['Inter_Tight'] text-gray-700 mb-1">
@@ -246,9 +344,10 @@ const RegistrationForm = () => {
                 value={formData.countryOfResidence}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6B5CA5] focus:border-transparent transition-all duration-200"
+                className={`w-full px-4 py-2 border ${errors.countryOfResidence ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6B5CA5] focus:border-transparent transition-all duration-200`}
                 placeholder="Enter your country"
               />
+              {errors.countryOfResidence && <p className="text-red-500 text-xs mt-1">{errors.countryOfResidence}</p>}
             </div>
             <div className="relative">
               <label className="block font-semibold font-['Inter_Tight'] text-gray-700 mb-1">
@@ -260,9 +359,10 @@ const RegistrationForm = () => {
                 value={formData.schoolName}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6B5CA5] focus:border-transparent transition-all duration-200"
+                className={`w-full px-4 py-2 border ${errors.schoolName ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6B5CA5] focus:border-transparent transition-all duration-200`}
                 placeholder="Enter your school name"
               />
+              {errors.schoolName && <p className="text-red-500 text-xs mt-1">{errors.schoolName}</p>}
             </div>
             <div className="relative">
               <label className="block font-semibold font-['Inter_Tight'] text-gray-700 mb-1">
@@ -273,12 +373,13 @@ const RegistrationForm = () => {
                 value={formData.enrollingFor}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6B5CA5] focus:border-transparent appearance-none bg-white bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoZXZyb24tZG93biI+PHBhdGggZD0ibTYgOSA2IDYgNi02Ii8+PC9zdmc+')] bg-no-repeat bg-[center_right_1rem]"
+                className={`w-full px-4 py-2 border ${errors.enrollingFor ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6B5CA5] focus:border-transparent appearance-none bg-white bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoZXZyb24tZG93biI+PHBhdGggZD0ibTYgOSA2IDYgNi02Ii8+PC9zdmc+')] bg-no-repeat bg-[center_right_1rem]`}
               >
                 <option value="">-Please Select-</option>
                 <option value="2025">May/June 2025</option>
                 <option value="2025-nov">Oct/Nov 2025</option>
               </select>
+              {errors.enrollingFor && <p className="text-red-500 text-xs mt-1">{errors.enrollingFor}</p>}
             </div>
             <div className="relative">
               <label className="block font-semibold font-['Inter_Tight'] text-gray-700 mb-1">
@@ -290,14 +391,16 @@ const RegistrationForm = () => {
                 value={formData.contactNumber}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6B5CA5] focus:border-transparent transition-all duration-200"
+                className={`w-full px-4 py-2 border ${errors.contactNumber ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6B5CA5] focus:border-transparent transition-all duration-200`}
                 placeholder="+92 300 1234567"
               />
+              {errors.contactNumber && <p className="text-red-500 text-xs mt-1">{errors.contactNumber}</p>}
             </div>
             <div className="col-span-2 mt-6">
               <label className="block mb-3 font-semibold font-['Inter_Tight'] text-gray-700">
                 Subjects <span className="text-red-500">*</span>
               </label>
+              {errors.subjects && <p className="text-red-500 text-xs mb-2">{errors.subjects}</p>}
               
               {tab === "aLevel" ? (
                 <div>
@@ -363,9 +466,10 @@ const RegistrationForm = () => {
                 value={formData.email}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6B5CA5] focus:border-transparent transition-all duration-200"
+                className={`w-full px-4 py-2 border ${errors.email ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6B5CA5] focus:border-transparent transition-all duration-200`}
                 placeholder="student@example.com"
               />
+              {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
             </div>
             <div className="relative">
               <label className="block font-semibold font-['Inter_Tight'] text-gray-700 mb-1">
@@ -377,9 +481,10 @@ const RegistrationForm = () => {
                 value={formData.city}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6B5CA5] focus:border-transparent transition-all duration-200"
+                className={`w-full px-4 py-2 border ${errors.city ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6B5CA5] focus:border-transparent transition-all duration-200`}
                 placeholder="Enter your city"
               />
+              {errors.city && <p className="text-red-500 text-xs mt-1">{errors.city}</p>}
             </div>
             <div className="relative">
               <label className="block font-semibold font-['Inter_Tight'] text-gray-700 mb-1">
@@ -391,9 +496,10 @@ const RegistrationForm = () => {
                 value={formData.country}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6B5CA5] focus:border-transparent transition-all duration-200"
+                className={`w-full px-4 py-2 border ${errors.country ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6B5CA5] focus:border-transparent transition-all duration-200`}
                 placeholder="Enter your country"
               />
+              {errors.country && <p className="text-red-500 text-xs mt-1">{errors.country}</p>}
             </div>
             <div className="col-span-2">
               <label className="block mb-3 font-semibold font-['Inter_Tight'] text-gray-700">
@@ -436,18 +542,23 @@ const RegistrationForm = () => {
               <label className="block font-semibold font-['Inter_Tight'] text-gray-700 mb-1">
                 Relationship with Student <span className="text-red-500">*</span>
               </label>
-              <select
-                name="guardianRelation"
-                value={formData.guardianRelation}
-                onChange={handleInputChange}
-                required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6B5CA5] focus:border-transparent appearance-none bg-white bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoZXZyb24tZG93biI+PHBhdGggZD0ibTYgOSA2IDYgNi02Ii8+PC9zdmc+')] bg-no-repeat bg-[center_right_1rem]"
-              >
-                <option value="">-Please Select-</option>
-                <option value="Parent">Parent</option>
-                <option value="Sibling">Sibling</option>
-                <option value="Guardian">Guardian</option>
-              </select>
+              {/* Modified dropdown to use regular HTML elements instead of the select element */}
+              <div className="relative">
+                <select
+                  name="guardianRelation"
+                  value={formData.guardianRelation}
+                  onChange={handleGuardianRelationChange}
+                  required
+                  className={`w-full px-4 py-2 border ${errors.guardianRelation ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6B5CA5] focus:border-transparent transition-all duration-200 appearance-none bg-white bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoZXZyb24tZG93biI+PHBhdGggZD0ibTYgOSA2IDYgNi02Ii8+PC9zdmc+')] bg-no-repeat bg-[center_right_1rem]`}
+                >
+                  {guardianRelationOptions.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.text}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              {errors.guardianRelation && <p className="text-red-500 text-xs mt-1">{errors.guardianRelation}</p>}
             </div>
             <div className="relative">
               <label className="block font-semibold font-['Inter_Tight'] text-gray-700 mb-1">
@@ -459,9 +570,10 @@ const RegistrationForm = () => {
                 value={formData.guardianName}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6B5CA5] focus:border-transparent transition-all duration-200"
+                className={`w-full px-4 py-2 border ${errors.guardianName ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6B5CA5] focus:border-transparent transition-all duration-200`}
                 placeholder="Enter guardian's name"
               />
+              {errors.guardianName && <p className="text-red-500 text-xs mt-1">{errors.guardianName}</p>}
             </div>
             <div className="relative">
               <label className="block font-semibold font-['Inter_Tight'] text-gray-700 mb-1">
@@ -473,9 +585,10 @@ const RegistrationForm = () => {
                 value={formData.guardianPhone}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6B5CA5] focus:border-transparent transition-all duration-200"
+                className={`w-full px-4 py-2 border ${errors.guardianPhone ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6B5CA5] focus:border-transparent transition-all duration-200`}
                 placeholder="+92 300 1234567"
               />
+              {errors.guardianPhone && <p className="text-red-500 text-xs mt-1">{errors.guardianPhone}</p>}
             </div>
             <div className="relative">
               <label className="block font-semibold font-['Inter_Tight'] text-gray-700 mb-1">
@@ -487,9 +600,10 @@ const RegistrationForm = () => {
                 value={formData.guardianEmail}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6B5CA5] focus:border-transparent transition-all duration-200"
+                className={`w-full px-4 py-2 border ${errors.guardianEmail ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6B5CA5] focus:border-transparent transition-all duration-200`}
                 placeholder="guardian@example.com"
               />
+              {errors.guardianEmail && <p className="text-red-500 text-xs mt-1">{errors.guardianEmail}</p>}
             </div>
             <div className="col-span-2 relative">
               <label className="block font-semibold font-['Inter_Tight'] text-gray-700 mb-1">
@@ -500,7 +614,7 @@ const RegistrationForm = () => {
                 value={formData.referralSource}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6B5CA5] focus:border-transparent appearance-none bg-white bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoZXZyb24tZG93biI+PHBhdGggZD0ibTYgOSA2IDYgNi02Ii8+PC9zdmc+')] bg-no-repeat bg-[center_right_1rem]"
+                className={`w-full px-4 py-2 border ${errors.referralSource ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6B5CA5] focus:border-transparent appearance-none bg-white bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoZXZyb24tZG93biI+PHBhdGggZD0ibTYgOSA2IDYgNi02Ii8+PC9zdmc+')] bg-no-repeat bg-[center_right_1rem]`}
               >
                 <option value="">-Please Select-</option>
                 <option value="Facebook">Facebook</option>
@@ -508,6 +622,7 @@ const RegistrationForm = () => {
                 <option value="Friend">Friend</option>
                 <option value="School">School</option>
               </select>
+              {errors.referralSource && <p className="text-red-500 text-xs mt-1">{errors.referralSource}</p>}
             </div>
             <div className="col-span-2 relative">
               <label className="block font-semibold font-['Inter_Tight'] text-gray-700 mb-1">
