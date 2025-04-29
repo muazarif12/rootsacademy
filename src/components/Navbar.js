@@ -1,12 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { ChevronDown } from "lucide-react";
 
 const Navbar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isDesktopSubjectsOpen, setIsDesktopSubjectsOpen] = useState(false);
+  const [isMobileSubjectsOpen, setIsMobileSubjectsOpen] = useState(false);
+  const desktopDropdownRef = useRef(null);
+  const mobileDropdownRef = useRef(null);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
+    // Close mobile subjects dropdown when closing sidebar
+    if (isSidebarOpen) {
+      setIsMobileSubjectsOpen(false);
+    }
   };
+
+  const toggleDesktopSubjects = () => {
+    setIsDesktopSubjectsOpen(!isDesktopSubjectsOpen);
+  };
+
+  const toggleMobileSubjects = (e) => {
+    e.stopPropagation(); // Prevent the event from bubbling up
+    setIsMobileSubjectsOpen(!isMobileSubjectsOpen);
+  };
+
+  // Close desktop dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (desktopDropdownRef.current && !desktopDropdownRef.current.contains(event.target)) {
+        setIsDesktopSubjectsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <nav className="flex justify-between items-center px-12 py-6 bg-[#FDF9F6] text-[#4D3E77] shadow-md text-lg font-semibold">
@@ -31,7 +63,31 @@ const Navbar = () => {
       <div className="hidden lg:flex space-x-8 text-xl font-semibold">
         <Link to="/" className="hover:text-purple-600">Home</Link>
         <Link to="/about" className="hover:text-purple-600">About</Link>
-        <Link to="/subjects" className="hover:text-purple-600">Subjects</Link>
+        
+        {/* Subjects with dropdown */}
+        <div className="relative" ref={desktopDropdownRef}>
+          <button 
+            onClick={toggleDesktopSubjects}
+            className="flex items-center hover:text-purple-600 focus:outline-none"
+          >
+            Subjects
+            <ChevronDown className="ml-1 h-5 w-5" />
+          </button>
+          
+          {/* Subjects dropdown */}
+          {isDesktopSubjectsOpen && (
+            <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg z-50">
+              <div className="grid grid-cols-1 gap-2 p-4">
+                <Link to="/biology" className="px-4 py-2 text-lg text-[#4D3E77] hover:bg-gray-100 rounded">Biology</Link>
+                <Link to="/chemistry" className="px-4 py-2 text-lg text-[#4D3E77] hover:bg-gray-100 rounded">Chemistry</Link>
+                <Link to="/physics" className="px-4 py-2 text-lg text-[#4D3E77] hover:bg-gray-100 rounded">Physics</Link>
+                <Link to="/mathematics" className="px-4 py-2 text-lg text-[#4D3E77] hover:bg-gray-100 rounded">Mathematics</Link>
+                <Link to="/computer-science" className="px-4 py-2 text-lg text-[#4D3E77] hover:bg-gray-100 rounded">Computer Science</Link>
+              </div>
+            </div>
+          )}
+        </div>
+        
         <Link to="/results" className="hover:text-purple-600">Results</Link>
         <Link to="/pricing" className="hover:text-purple-600">Pricing</Link>
         <Link to="/contact" className="hover:text-purple-600">Contact</Link>
@@ -66,9 +122,28 @@ const Navbar = () => {
           <Link to="/about" onClick={toggleSidebar} className="text-xl font-semibold hover:text-purple-600 w-min whitespace-nowrap">
             About
           </Link>
-          <Link to="/subjects" onClick={toggleSidebar} className="text-xl font-semibold hover:text-purple-600 w-min whitespace-nowrap">
-            Subjects
-          </Link>
+          
+          {/* Mobile Subjects Dropdown */}
+          <div className="w-min whitespace-nowrap" ref={mobileDropdownRef}>
+            <button 
+              onClick={toggleMobileSubjects}
+              className="flex items-center text-xl font-semibold hover:text-purple-600 focus:outline-none"
+            >
+              Subjects
+              <ChevronDown className="ml-1 h-5 w-5" />
+            </button>
+            
+            {isMobileSubjectsOpen && (
+              <div className="ml-4 mt-2 flex flex-col space-y-2">
+                <Link to="/biology" onClick={toggleSidebar} className="text-lg hover:text-purple-600">Biology</Link>
+                <Link to="/chemistry" onClick={toggleSidebar} className="text-lg hover:text-purple-600">Chemistry</Link>
+                <Link to="/physics" onClick={toggleSidebar} className="text-lg hover:text-purple-600">Physics</Link>
+                <Link to="/mathematics" onClick={toggleSidebar} className="text-lg hover:text-purple-600">Mathematics</Link>
+                <Link to="/computer-science" onClick={toggleSidebar} className="text-lg hover:text-purple-600">Computer Science</Link>
+              </div>
+            )}
+          </div>
+          
           <Link to="/results" onClick={toggleSidebar} className="text-xl font-semibold hover:text-purple-600 w-min whitespace-nowrap">
             Results
           </Link>
