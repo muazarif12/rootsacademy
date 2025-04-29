@@ -2,15 +2,15 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 
-// Temporarily comment out image imports to avoid errors
-// We'll use placeholders until you can provide the correct paths
-// import image1 from '../assets/images/biology/image1.jpg'; // Add the correct file extension
-// import image2 from '../assets/images/biology/image2.jpg';
-// import image3 from '../assets/images/biology/image3.jpg';
-// import image4 from '../assets/images/biology/image4.jpg';
-// import image5 from '../assets/images/biology/image5.jpg';
+import image1 from '../assets/images/Chemsitry/image1.jpg'
+import image2 from '../assets/images/Chemsitry/image2.jpg'
+import image3 from '../assets/images/Chemsitry/image3.jpg'
+import image4 from '../assets/images/Chemsitry/image4.jpg'
+// import image5 from '../assets/images/chemistry/image5.pdf';
 
-const BiologyPage = ({ trial = false, purchase = false }) => {
+//import image1 from '../assets/images/chemistry/image1.jpg';
+
+const ChemistryPage = ({ trial = false, purchase = false }) => {
   return (
     <div className="min-h-screen bg-[#FDF9F6]">
       {/* No need to call Navbar here since it's already in index.js */}
@@ -39,10 +39,10 @@ const BiologyPage = ({ trial = false, purchase = false }) => {
               </Link>
             </div>
           </div>
-          <div className="rounded-lg shadow-xl overflow-hidden border-8 border-white bg-white transform rotate-2">
+          <div className="rounded-lg shadow-xl overflow-hidden border-8 border-white bg-white">
             <img
               // src={image1}
-              src="/images/biology/image1.jpg" // Using public folder path instead
+              src={image1} // Using public folder path instead
               alt="Biology course preview"
               className="w-full h-auto"
             />
@@ -51,10 +51,10 @@ const BiologyPage = ({ trial = false, purchase = false }) => {
         
         {/* Section 2: Video Lessons - Image on Left */}
         <div className="grid md:grid-cols-2 gap-12 mb-20 items-center">
-          <div className="order-2 md:order-1 rounded-lg shadow-xl overflow-hidden border-8 border-white bg-white transform -rotate-2">
+          <div className="order-2 md:order-1 rounded-lg shadow-xl overflow-hidden border-8 border-white bg-white ">
             <img
               // src={image2}
-              src="/images/biology/image2.jpg" // Using public folder path instead
+              src={image2} // Using public folder path instead
               alt="Biology video lessons"
               className="w-full h-auto"
             />
@@ -103,10 +103,10 @@ const BiologyPage = ({ trial = false, purchase = false }) => {
               </Link>
             </div>
           </div>
-          <div className="rounded-lg shadow-xl overflow-hidden border-8 border-white bg-white transform rotate-2">
+          <div className="rounded-lg shadow-xl overflow-hidden border-8 border-white bg-white ">
             <img
               // src={image3}
-              src="/images/biology/image3.jpg" // Using public folder path instead
+              src={image3} // Using public folder path instead
               alt="Biology practical skills"
               className="w-full h-auto"
             />
@@ -115,10 +115,10 @@ const BiologyPage = ({ trial = false, purchase = false }) => {
         
         {/* Section 4: Exam Techniques - Image on Left */}
         <div className="grid md:grid-cols-2 gap-12 mb-20 items-center">
-          <div className="order-2 md:order-1 rounded-lg shadow-xl overflow-hidden border-8 border-white bg-white transform -rotate-2">
+          <div className="order-2 md:order-1 rounded-lg shadow-xl overflow-hidden border-8 border-white bg-white">
             <img
               // src={image4}
-              src="/images/biology/image4.jpg" // Using public folder path instead
+              src={image4} // Using public folder path instead
               alt="Biology exam techniques"
               className="w-full h-auto"
             />
@@ -145,39 +145,7 @@ const BiologyPage = ({ trial = false, purchase = false }) => {
           </div>
         </div>
         
-        {/* Section 5: Support - Image on Right
-        <div className="grid md:grid-cols-2 gap-12 mb-20 items-center">
-          <div>
-            <h2 className="text-3xl font-bold mb-6">Expert support whenever you need it</h2>
-            <p className="text-lg mb-6">
-              Get stuck on a tricky concept? Our team of biology specialists is here to help. 
-              Ask questions, receive personalized feedback on your work, and get the guidance you 
-              need to overcome any challenge in your biology studies.
-            </p>
-            <div className="flex space-x-4">
-              <Link
-                to="/try-biology-free"
-                className="px-6 py-3 bg-[#222222] text-white font-semibold rounded-lg hover:bg-gray-800 transition"
-              >
-                Try for free
-              </Link>
-              <Link
-                to="/buy-biology"
-                className="px-6 py-3 bg-[#4D3E77] text-white font-semibold rounded-lg hover:bg-[#3A2D5A] transition"
-              >
-                Buy Now
-              </Link>
-            </div>
-          </div>
-          <div className="rounded-lg shadow-xl overflow-hidden border-8 border-white bg-white transform rotate-2">
-            <img
-              // src={image5}
-              src="/images/biology/image5.jpg" // Using public folder path instead
-              alt="Biology expert support"
-              className="w-full h-auto"
-            />
-          </div>
-        </div> */}
+        
       </div>
       
       <Footer />
@@ -185,4 +153,4 @@ const BiologyPage = ({ trial = false, purchase = false }) => {
   );
 };
 
-export default BiologyPage;
+export default ChemistryPage;

@@ -2,15 +2,14 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 
-// Temporarily comment out image imports to avoid errors
-// We'll use placeholders until you can provide the correct paths
-// import image1 from '../assets/images/biology/image1.jpg'; // Add the correct file extension
-// import image2 from '../assets/images/biology/image2.jpg';
-// import image3 from '../assets/images/biology/image3.jpg';
-// import image4 from '../assets/images/biology/image4.jpg';
-// import image5 from '../assets/images/biology/image5.jpg';
+import image1 from '../assets/images/Computer Science/image1.jpg'
+import image2 from '../assets/images/Computer Science/image2.jpg'
+import image3 from '../assets/images/Computer Science/image3.jpg'
+import image4 from '../assets/images/Computer Science/image4.jpg'
 
-const BiologyPage = ({ trial = false, purchase = false }) => {
+
+
+const ComputerSciencePage = ({ trial = false, purchase = false }) => {
   return (
     <div className="min-h-screen bg-[#FDF9F6]">
       {/* No need to call Navbar here since it's already in index.js */}
@@ -39,10 +38,10 @@ const BiologyPage = ({ trial = false, purchase = false }) => {
               </Link>
             </div>
           </div>
-          <div className="rounded-lg shadow-xl overflow-hidden border-8 border-white bg-white transform rotate-2">
+          <div className="rounded-lg shadow-xl overflow-hidden border-8 border-white bg-white ">
             <img
               // src={image1}
-              src="/images/biology/image1.jpg" // Using public folder path instead
+              src={image1} // Using public folder path instead
               alt="Biology course preview"
               className="w-full h-auto"
             />
@@ -51,10 +50,10 @@ const BiologyPage = ({ trial = false, purchase = false }) => {
         
         {/* Section 2: Video Lessons - Image on Left */}
         <div className="grid md:grid-cols-2 gap-12 mb-20 items-center">
-          <div className="order-2 md:order-1 rounded-lg shadow-xl overflow-hidden border-8 border-white bg-white transform -rotate-2">
+          <div className="order-2 md:order-1 rounded-lg shadow-xl overflow-hidden border-8 border-white bg-white ">
             <img
               // src={image2}
-              src="/images/biology/image2.jpg" // Using public folder path instead
+              src={image2} // Using public folder path instead
               alt="Biology video lessons"
               className="w-full h-auto"
             />
@@ -103,10 +102,10 @@ const BiologyPage = ({ trial = false, purchase = false }) => {
               </Link>
             </div>
           </div>
-          <div className="rounded-lg shadow-xl overflow-hidden border-8 border-white bg-white transform rotate-2">
+          <div className="rounded-lg shadow-xl overflow-hidden border-8 border-white bg-white ">
             <img
               // src={image3}
-              src="/images/biology/image3.jpg" // Using public folder path instead
+              src={image3} // Using public folder path instead
               alt="Biology practical skills"
               className="w-full h-auto"
             />
@@ -115,10 +114,10 @@ const BiologyPage = ({ trial = false, purchase = false }) => {
         
         {/* Section 4: Exam Techniques - Image on Left */}
         <div className="grid md:grid-cols-2 gap-12 mb-20 items-center">
-          <div className="order-2 md:order-1 rounded-lg shadow-xl overflow-hidden border-8 border-white bg-white transform -rotate-2">
+          <div className="order-2 md:order-1 rounded-lg shadow-xl overflow-hidden border-8 border-white bg-white ">
             <img
               // src={image4}
-              src="/images/biology/image4.jpg" // Using public folder path instead
+              src={image4} // Using public folder path instead
               alt="Biology exam techniques"
               className="w-full h-auto"
             />
@@ -185,4 +184,4 @@ const BiologyPage = ({ trial = false, purchase = false }) => {
   );
 };
 
-export default BiologyPage;
+export default ComputerSciencePage;
