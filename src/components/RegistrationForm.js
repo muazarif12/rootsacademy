@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 
 const RegistrationForm = () => {
+  const [tab, setTab] = useState("oLevel"); // oLevel, aLevel, igcse
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     countryOfResidence: "",
     schoolName: "",
-    caieExam: "",
+    curriculum: "oLevel", // Default curriculum
     enrollingFor: "",
     subjects: [],
     contactNumber: "",
@@ -22,6 +23,86 @@ const RegistrationForm = () => {
     referralSource: "",
     referralCode: "",
   });
+
+  // Subject lists by curriculum
+  const subjectsByCurriculum = {
+    oLevel: [
+      "Physics (5054)",
+      "Chemistry (5070)",
+      "Mathematics (4024)",
+      "English (1123)",
+      "ComputerScience (2210)",
+      "Biology (5090)",
+      "Additional Mathematics (4037)",
+      "Accounts (7707)",
+      "Business Studies (7115)",
+      "Economics (2281)",
+    ],
+    aLevel: {
+      AS: [
+        "Physics AS (9702)",
+        "Chemistry AS (9701)",
+        "Mathematics AS (9709)",
+        "Biology AS (9700)",
+        "English (9093)",
+        "Computer Science AS (9608)",
+        "Accounts (9706)",
+        "Economics AS (9708)",
+        "Business Studies (9707)"
+      ],
+      A2: [
+        "Physics A2 (9702)",
+        "Chemistry A2 (9701)",
+        "Mathematics A2 (9709)",
+        "English (9093)",
+        "Biology A2 (9700)",
+        "Computer Science A2 (9618)",
+        "Economics A2 (9708)",
+        "Business A2 (9609)",
+        "Accounting A2 (9706)",
+      ]
+    },
+    igcse: [
+      "Physics (0625)",
+      "Chemistry (0620)",
+      "Mathematics (0580)",
+      "English (0500/0511)",
+      "ICT (0417)",
+      "ComputerScience (0478)",
+      "Biology (0610)",
+      "Additional Mathematics (0606)",
+      "Accounts (0452)",
+      "Business Studies (0450)",
+      "Economics (0455)"
+    ],
+  };
+
+  const handleTabChange = (selectedTab) => {
+    setTab(selectedTab);
+    // Reset to step 1 when changing tabs
+    setStep(1);
+    // Reset the entire form when changing tabs
+    setFormData({
+      firstName: "",
+      lastName: "",
+      countryOfResidence: "",
+      schoolName: "",
+      curriculum: selectedTab,
+      enrollingFor: "",
+      subjects: [],
+      contactNumber: "",
+      email: "",
+      city: "",
+      country: "",
+      teachingLanguage: [],
+      guardianRelation: "",
+      guardianName: "",
+      guardianPhone: "",
+      guardianEmail: "",
+      referralSource: "",
+      referralCode: "",
+    });
+  };
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -57,10 +138,45 @@ const RegistrationForm = () => {
 
   return (
     <div className="max-w-6xl w-full mx-auto py-10 px-6 bg-[#FDF9F6] lg:rounded-lg lg:shadow-lg">
-
-      <h2 className="text-3xl font-semibold text-center mb-16 font-['Inter_Tight'] text-[#4B3676]">
+      <h2 className="text-3xl font-semibold text-center mb-8 font-['Inter_Tight'] text-[#4B3676]">
         Student Registration Form
       </h2>
+
+      {/* Curriculum Tabs */}
+      <div className="flex justify-center mb-10">
+        <div className="inline-flex bg-gray-100 rounded-full p-1">
+          <button
+            onClick={() => handleTabChange("oLevel")}
+            className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+              tab === "oLevel"
+                ? "bg-[#4B3676] text-white shadow-md"
+                : "text-gray-700 hover:bg-gray-200"
+            }`}
+          >
+            O Level
+          </button>
+          <button
+            onClick={() => handleTabChange("aLevel")}
+            className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+              tab === "aLevel"
+                ? "bg-[#4B3676] text-white shadow-md"
+                : "text-gray-700 hover:bg-gray-200"
+            }`}
+          >
+            A Level
+          </button>
+          <button
+            onClick={() => handleTabChange("igcse")}
+            className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+              tab === "igcse"
+                ? "bg-[#4B3676] text-white shadow-md"
+                : "text-gray-700 hover:bg-gray-200"
+            }`}
+          >
+            IGCSE
+          </button>
+        </div>
+      </div>
 
       <div className="mb-6">
         <p className="font-medium font-['Inter_Tight'] mb-10 text-gray-600">
@@ -150,22 +266,6 @@ const RegistrationForm = () => {
             </div>
             <div className="relative">
               <label className="block font-semibold font-['Inter_Tight'] text-gray-700 mb-1">
-                Appearing for CAIE Examination <span className="text-red-500">*</span>
-              </label>
-              <select
-                name="caieExam"
-                value={formData.caieExam}
-                onChange={handleInputChange}
-                required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6B5CA5] focus:border-transparent appearance-none bg-white bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoZXZyb24tZG93biI+PHBhdGggZD0ibTYgOSA2IDYgNi02Ii8+PC9zdmc+')] bg-no-repeat bg-[center_right_1rem]"
-              >
-                <option value="">-Please Select-</option>
-                <option value="O Level">O Level</option>
-                <option value="A Level">A Level</option>
-              </select>
-            </div>
-            <div className="relative">
-              <label className="block font-semibold font-['Inter_Tight'] text-gray-700 mb-1">
                 Enrolling for <span className="text-red-500">*</span>
               </label>
               <select
@@ -180,36 +280,6 @@ const RegistrationForm = () => {
                 <option value="2025-nov">Oct/Nov 2025</option>
               </select>
             </div>
-            <div className="col-span-2 mt-6">
-              <label className="block mb-3 font-semibold font-['Inter_Tight'] text-gray-700">
-                Subjects <span className="text-red-500">*</span>
-              </label>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 font-medium font-['Inter_Tight']">
-                {[
-                  "Physics (0625)",
-                  "Chemistry (0620)",
-                  "Mathematics (0580)",
-                  "English (0500/0511)",
-                  "ICT/CS (0420/0478)",
-                  "Biology (0610)",
-                  "Add Mathematics (0606)",
-                  "Accounts (0452)",
-                  "Business Studies (0450)",
-                  "Economics (0455)",
-                ].map((subject) => (
-                  <label key={subject} className="flex items-center space-x-2 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      name="subjects"
-                      value={subject}
-                      onChange={handleInputChange}
-                      className="w-5 h-5 text-[#6B5CA5] rounded border-gray-300 focus:ring-[#6B5CA5]"
-                    />
-                    <span className="text-gray-700">{subject}</span>
-                  </label>
-                ))}
-              </div>
-            </div>
             <div className="relative">
               <label className="block font-semibold font-['Inter_Tight'] text-gray-700 mb-1">
                 Student's Contact Number <span className="text-red-500">*</span>
@@ -223,6 +293,65 @@ const RegistrationForm = () => {
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#6B5CA5] focus:border-transparent transition-all duration-200"
                 placeholder="+92 300 1234567"
               />
+            </div>
+            <div className="col-span-2 mt-6">
+              <label className="block mb-3 font-semibold font-['Inter_Tight'] text-gray-700">
+                Subjects <span className="text-red-500">*</span>
+              </label>
+              
+              {tab === "aLevel" ? (
+                <div>
+                  <h3 className="text-lg font-semibold mb-3 text-[#4B3676] font-['Inter_Tight']">AS Level</h3>
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4 font-medium font-['Inter_Tight'] mb-8">
+                    {subjectsByCurriculum.aLevel.AS.map((subject) => (
+                      <label key={subject} className="flex items-center space-x-2 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          name="subjects"
+                          value={subject}
+                          checked={formData.subjects.includes(subject)}
+                          onChange={handleInputChange}
+                          className="w-5 h-5 text-[#6B5CA5] rounded border-gray-300 focus:ring-[#6B5CA5]"
+                        />
+                        <span className="text-gray-700">{subject}</span>
+                      </label>
+                    ))}
+                  </div>
+                  
+                  <h3 className="text-lg font-semibold mb-3 text-[#4B3676] font-['Inter_Tight']">A2 Level</h3>
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4 font-medium font-['Inter_Tight']">
+                    {subjectsByCurriculum.aLevel.A2.map((subject) => (
+                      <label key={subject} className="flex items-center space-x-2 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          name="subjects"
+                          value={subject}
+                          checked={formData.subjects.includes(subject)}
+                          onChange={handleInputChange}
+                          className="w-5 h-5 text-[#6B5CA5] rounded border-gray-300 focus:ring-[#6B5CA5]"
+                        />
+                        <span className="text-gray-700">{subject}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 font-medium font-['Inter_Tight']">
+                  {subjectsByCurriculum[tab].map((subject) => (
+                    <label key={subject} className="flex items-center space-x-2 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        name="subjects"
+                        value={subject}
+                        checked={formData.subjects.includes(subject)}
+                        onChange={handleInputChange}
+                        className="w-5 h-5 text-[#6B5CA5] rounded border-gray-300 focus:ring-[#6B5CA5]"
+                      />
+                      <span className="text-gray-700">{subject}</span>
+                    </label>
+                  ))}
+                </div>
+              )}
             </div>
             <div className="relative">
               <label className="block font-semibold font-['Inter_Tight'] text-gray-700 mb-1">
@@ -276,6 +405,7 @@ const RegistrationForm = () => {
                     type="checkbox"
                     name="teachingLanguage"
                     value="Urdu"
+                    checked={formData.teachingLanguage.includes("Urdu")}
                     onChange={handleInputChange}
                     className="w-5 h-5 text-[#6B5CA5] rounded border-gray-300 focus:ring-[#6B5CA5]"
                   />
@@ -286,6 +416,7 @@ const RegistrationForm = () => {
                     type="checkbox"
                     name="teachingLanguage"
                     value="English"
+                    checked={formData.teachingLanguage.includes("English")}
                     onChange={handleInputChange}
                     className="w-5 h-5 text-[#6B5CA5] rounded border-gray-300 focus:ring-[#6B5CA5]"
                   />
