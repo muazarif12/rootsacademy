@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const RegistrationForm = () => {
   const [tab, setTab] = useState("oLevel"); // oLevel, aLevel, igcse
@@ -88,6 +88,21 @@ const RegistrationForm = () => {
   ];
 
   const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
+  // Add useEffect to clear submitStatus after 5 seconds
+  useEffect(() => {
+    let timer;
+    if (submitStatus) {
+      timer = setTimeout(() => {
+        setSubmitStatus(null);
+      }, 5000); // 5000 milliseconds = 5 seconds
+    }
+    
+    // Cleanup function to clear the timer if component unmounts
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
+  }, [submitStatus]); // Dependency array with submitStatus
 
   const handleTabChange = (selectedTab) => {
     setTab(selectedTab);
@@ -297,11 +312,13 @@ const RegistrationForm = () => {
         Student Registration Form
       </h2>
 
-      {/* Status Message */}
+      {/* Status Message with CSS transition for smooth fade out */}
       {submitStatus && (
-        <div className={`mb-6 p-4 rounded-lg ${
-          submitStatus.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
-        }`}>
+        <div 
+          className={`mb-6 p-4 rounded-lg transition-opacity duration-500 ${
+            submitStatus.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+          }`}
+        >
           {submitStatus.message}
         </div>
       )}
