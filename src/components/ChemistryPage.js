@@ -14,6 +14,15 @@ const ChemistryPage = ({ trial = false, purchase = false }) => {
   return (
     <div className="min-h-screen bg-[#FDF9F6]">
       {/* No need to call Navbar here since it's already in index.js */}
+      <div className="text-center mb-10 font-['Roboto'] px-4 py-10">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#4D3E77] leading-tight tracking-normal mt-0 mb-0">
+
+              <span className="bg-[#4D3E77] text-white px-3 py-2 rounded-md inline-block">
+               Chemistry
+              </span>
+              
+            </h1>
+          </div>  
       
       <div className="max-w-6xl mx-auto py-10 px-6">
         {/* Section 1: Hero Section - Image on Right */}
