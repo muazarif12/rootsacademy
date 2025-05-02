@@ -3,6 +3,8 @@ import React, { useState } from "react";
 const RegistrationForm = () => {
   const [tab, setTab] = useState("oLevel"); // oLevel, aLevel, igcse
   const [step, setStep] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -84,6 +86,8 @@ const RegistrationForm = () => {
     { value: "Sibling", text: "Sibling" },
     { value: "Guardian", text: "Guardian" }
   ];
+
+  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
   const handleTabChange = (selectedTab) => {
     setTab(selectedTab);
@@ -209,11 +213,66 @@ const RegistrationForm = () => {
     if (step === 2) setStep(1);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateStep2()) {
-      console.log("Submitted Data:", formData);
-      // Add API call or action here
+      setLoading(true);
+      setSubmitStatus(null);
+      
+      try {
+        const response = await fetch(`${API_URL}/register_student`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+        
+        const data = await response.json();
+        
+        if (response.ok) {
+          setSubmitStatus({
+            type: 'success',
+            message: data.message || 'Registration successful!'
+          });
+          
+          // Reset form after successful submission
+          setFormData({
+            firstName: "",
+            lastName: "",
+            countryOfResidence: "",
+            schoolName: "",
+            curriculum: tab,
+            enrollingFor: "",
+            subjects: [],
+            contactNumber: "",
+            email: "",
+            city: "",
+            country: "",
+            teachingLanguage: [],
+            guardianRelation: "",
+            guardianName: "",
+            guardianPhone: "",
+            guardianEmail: "",
+            referralSource: "",
+            referralCode: "",
+          });
+          setStep(1);
+        } else {
+          setSubmitStatus({
+            type: 'error',
+            message: data.message || 'Registration failed. Please try again.'
+          });
+        }
+      } catch (error) {
+        console.error('Error submitting form:', error);
+        setSubmitStatus({
+          type: 'error',
+          message: 'Network error. Please check your connection and try again.'
+        });
+      } finally {
+        setLoading(false);
+      }
     }
   };
 
@@ -237,6 +296,15 @@ const RegistrationForm = () => {
       <h2 className="text-3xl font-semibold text-center mb-8 font-['Inter_Tight'] text-[#4B3676]">
         Student Registration Form
       </h2>
+
+      {/* Status Message */}
+      {submitStatus && (
+        <div className={`mb-6 p-4 rounded-lg ${
+          submitStatus.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+        }`}>
+          {submitStatus.message}
+        </div>
+      )}
 
       {/* Curriculum Tabs */}
       <div className="flex justify-center mb-10">
@@ -407,23 +475,6 @@ const RegistrationForm = () => {
                   <h3 className="text-lg font-semibold mb-3 text-[#4B3676] font-['Inter_Tight']">AS Level</h3>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-4 font-medium font-['Inter_Tight'] mb-8">
                     {subjectsByCurriculum.aLevel.AS.map((subject) => (
-                      <label key={subject} className="flex items-center space-x-2 cursor-pointer">
-                        <input
-                          type="checkbox"
-                          name="subjects"
-                          value={subject}
-                          checked={formData.subjects.includes(subject)}
-                          onChange={handleInputChange}
-                          className="w-5 h-5 text-[#6B5CA5] rounded border-gray-300 focus:ring-[#6B5CA5]"
-                        />
-                        <span className="text-gray-700">{subject}</span>
-                      </label>
-                    ))}
-                  </div>
-                  
-                  <h3 className="text-lg font-semibold mb-3 text-[#4B3676] font-['Inter_Tight']">A2 Level</h3>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4 font-medium font-['Inter_Tight']">
-                    {subjectsByCurriculum.aLevel.A2.map((subject) => (
                       <label key={subject} className="flex items-center space-x-2 cursor-pointer">
                         <input
                           type="checkbox"
@@ -662,9 +713,20 @@ const RegistrationForm = () => {
           ) : (
             <button
               type="submit"
-              className="px-8 py-3 bg-[#4B3676] hover:bg-[#3A2A5F] text-white rounded-full shadow text-sm font-semibold transition-colors duration-200"
+              disabled={loading}
+              className={`px-8 py-3 ${
+                loading ? 'bg-gray-500' : 'bg-[#4B3676] hover:bg-[#3A2A5F]'
+              } text-white rounded-full shadow text-sm font-semibold transition-colors duration-200 flex items-center`}
             >
-              Submit
+              {loading ? (
+                <>
+                  <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  Submitting...
+                </>
+              ) : 'Submit'}
             </button>
           )}
         </div>
