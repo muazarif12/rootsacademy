@@ -1,11 +1,16 @@
 import React from "react";
+// import featureVideo2 from "../assets/videos/video2.mp4" // path of video2
+// import featureVideo3 from "../assets/videos/video3.mp4" // path of video3
+// import featureVideo4 from "../assets/videos/video4.mp4" // path of video4
+// import featureVideo5 from "../assets/videos/video5.mp4" // path of video5
 
 const features = [
   {
     title: "Replay and Resolve",
     description: "Join live classes in real time for direct support, instant feedback, and deeper understanding. Ask questions, engage with experienced  teacher, and stay fully connected to your learning..",
-    videoSrc: "https://cdn.prod.website-files.com/6784e13057450193c3cbe00a/67920fe46e78e143c78d4568_Chemistry%20Short%20Video%20Lecture-transcode.mp4",
-    poster: "https://cdn.prod.website-files.com/6784e13057450193c3cbe00a/67920fe46e78e143c78d4568_Chemistry%20Short%20Video%20Lecture-poster-00001.jpg",
+    videoSrc: "https://cdn.prod.website-files.com/6784e13057450193c3cbe00a/67920fe46e78e143c78d4568_Chemistry%20Short%20Video%20Lecture-transcode.mp4",  //demo
+    //poster: "https://cdn.prod.website-files.com/6784e13057450193c3cbe00a/67920fe46e78e143c78d4568_Chemistry%20Short%20Video%20Lecture-poster-00001.jpg",
+    //videoSrc: featureVideo2, // real 
     bgColor: "bg-red-100",
     borderColor: "border-red-300",
     textColor: " text-pink-800",
@@ -17,8 +22,9 @@ const features = [
   {
     title: "Bit Sized Assignments",
     description: "Tackle topical past paper questions step-by-step with our teacher-guided walkthroughs. These bite-sized assignments are crafted to mirror real exam patterns, helping you understand examiner expectations and improve accuracy. Top teachers solve exam questions step-by-step, showing you exactly what examiners want.",
-    videoSrc: "https://cdn.prod.website-files.com/66a9d3b309fadf5baa213c6b/67a614f6c2304ee3cb6879f8_econcrop-transcode.mp4",
-    poster: "https://cdn.prod.website-files.com/66a9d3b309fadf5baa213c6b/67a614f6c2304ee3cb6879f8_econcrop-poster-00001.jpg",
+    videoSrc: "https://cdn.prod.website-files.com/66a9d3b309fadf5baa213c6b/67a614f6c2304ee3cb6879f8_econcrop-transcode.mp4", //demo
+    //poster: "https://cdn.prod.website-files.com/66a9d3b309fadf5baa213c6b/67a614f6c2304ee3cb6879f8_econcrop-poster-00001.jpg",
+    //videoSrc: featureVideo3, // real
     bgColor: "bg-green-100",
     borderColor: "border-green-300",
     textColor: "text-green-800",
@@ -30,8 +36,9 @@ const features = [
   {
     title: "Instant Support, 24/7",
     description: "Confused about a topic? Whether it’s late at night or early morning, get answers by messaging your assistant or teacher anytime. on a question? Get help anytime, anywhere - on your phone, laptop, or tablet.",
-    videoSrc: "https://cdn.prod.website-files.com/6784e13057450193c3cbe00a/679213e703317cd1456221df_Chemistry%20Short%20Academic%20Support-transcode.mp4",
-    poster: "https://cdn.prod.website-files.com/6784e13057450193c3cbe00a/679213e703317cd1456221df_Chemistry%20Short%20Academic%20Support-poster-00001.jpg",
+    videoSrc: "https://cdn.prod.website-files.com/6784e13057450193c3cbe00a/679213e703317cd1456221df_Chemistry%20Short%20Academic%20Support-transcode.mp4", //demo
+    //poster: "https://cdn.prod.website-files.com/6784e13057450193c3cbe00a/679213e703317cd1456221df_Chemistry%20Short%20Academic%20Support-poster-00001.jpg",
+    //videoSrc: featureVideo4, // real
     bgColor: "bg-blue-100",
     borderColor: "border-green-300",
     textColor: "text-blue-800",
@@ -43,8 +50,9 @@ const features = [
   {
     title: "Real Practice. Real Feedback.",
     description: "Submit tests and assignments on student portal, and receive detailed evaluations to guide your improvement. It's not just about practice—it's about progress.",
-    videoSrc: "https://cdn.prod.website-files.com/6784e13057450193c3cbe00a/67921404b91f5fc62e6a297b_Chemistry%20Short%20Crash%20Courses-transcode.mp4",
-    poster: "https://cdn.prod.website-files.com/6784e13057450193c3cbe00a/67921404b91f5fc62e6a297b_Chemistry%20Short%20Crash%20Courses-poster-00001.jpg",
+    videoSrc: "https://cdn.prod.website-files.com/6784e13057450193c3cbe00a/67921404b91f5fc62e6a297b_Chemistry%20Short%20Crash%20Courses-transcode.mp4", //demo
+    //poster: "https://cdn.prod.website-files.com/6784e13057450193c3cbe00a/67921404b91f5fc62e6a297b_Chemistry%20Short%20Crash%20Courses-poster-00001.jpg",
+    //videoSrc: featureVideo5, // real
     bgColor: "bg-yellow-100",
     borderColor: "border-yellow-300",
     textColor: "text-yellow-800",
@@ -92,7 +100,7 @@ const FeaturesSection = () => {
                 <video
                   className="w-full h-full object-cover"
                   src={features[0].videoSrc}
-                  poster={features[0].poster}
+                  //poster={features[0].poster}
                   autoPlay
                   loop
                   muted
@@ -115,7 +123,7 @@ const FeaturesSection = () => {
                 <video
                   className="w-full h-full object-cover"
                   src={features[1].videoSrc}
-                  poster={features[1].poster}
+                  //poster={features[1].poster}
                   autoPlay
                   loop
                   muted
@@ -141,7 +149,7 @@ const FeaturesSection = () => {
                 <video
                   className="w-full h-full object-cover"
                   src={features[2].videoSrc}
-                  poster={features[2].poster}
+                  //poster={features[2].poster}
                   autoPlay
                   loop
                   muted
@@ -164,7 +172,7 @@ const FeaturesSection = () => {
                 <video
                   className="w-full h-full object-cover"
                   src={features[3].videoSrc}
-                  poster={features[3].poster}
+                  //poster={features[3].poster}
                   autoPlay
                   loop
                   muted

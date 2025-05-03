@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import courseImage from "../assets/images/video_image.PNG"; // Replace with actual image path
+import courseImage from "../assets/images/video_image.PNG"; // path of video image
+import featureVideo from "../assets/videos/feature.mp4" // path of
+
+
 
 const CoursePreview = () => {
   const [videoVisible, setVideoVisible] = useState(false);
@@ -49,6 +52,14 @@ const CoursePreview = () => {
         {/* Video iframe (only visible when the video is active) */}
         {videoVisible && (
           <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-black bg-opacity-75">
+            {/* <video
+              src={featureVideo}
+              height="529"
+              controls
+              autoPlay
+              type="video/mp4"
+            /> */}
+
             <iframe
               src="https://player.vimeo.com/video/1050689757?autoplay=1"
               width="940"
@@ -58,6 +69,8 @@ const CoursePreview = () => {
               allowFullScreen
               title="Course Video"
             ></iframe>
+
+
             <button
               onClick={handleCloseVideo}
               className="absolute top-4 right-4 text-white text-xl"
