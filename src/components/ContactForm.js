@@ -14,8 +14,8 @@ const countryOptions = [
   { value: "+27", label: <CountryOption code="sa" dialCode="+27" /> },
 ];
 
-// Subject options for dropdown
-const subjectOptions = [
+// Select options dropdown
+const selectOptions = [
   { value: "admission", label: "Admission Inquiry" },
   { value: "course", label: "Course Information" },
   { value: "support", label: "Technical Support" },
@@ -42,10 +42,10 @@ const ContactForm = () => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
-    email: "",
-    phoneCode: "",
-    phoneNumber: "",
-    subject: "",
+    emailAddress: "",
+    countryCode: "+92", // Default to Pakistan
+    mobileNumber: "",
+    selectOption: "",
     message: ""
   });
   
@@ -78,7 +78,7 @@ const ContactForm = () => {
     setSelectedCountry(selectedOption);
     setFormData(prev => ({
       ...prev,
-      phoneCode: selectedOption.value
+      countryCode: selectedOption.value
     }));
   };
 
@@ -88,19 +88,19 @@ const ContactForm = () => {
     // Required fields
     if (!formData.firstName.trim()) newErrors.firstName = "First name is required";
     if (!formData.lastName.trim()) newErrors.lastName = "Last name is required";
-    if (!formData.email.trim()) newErrors.email = "Email is required";
-    if (!formData.phoneNumber.trim()) newErrors.phoneNumber = "Phone number is required";
-    if (!formData.subject) newErrors.subject = "Please select a subject";
+    if (!formData.emailAddress.trim()) newErrors.emailAddress = "Email is required";
+    if (!formData.mobileNumber.trim()) newErrors.mobileNumber = "Phone number is required";
+    if (!formData.selectOption) newErrors.selectOption = "Please select an option";
     if (!formData.message.trim()) newErrors.message = "Message is required";
     
     // Email validation
-    if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Please enter a valid email address";
+    if (formData.emailAddress && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.emailAddress)) {
+      newErrors.emailAddress = "Please enter a valid email address";
     }
     
     // Phone validation (basic)
-    if (formData.phoneNumber && !/^[0-9\s-]{7,}$/.test(formData.phoneNumber)) {
-      newErrors.phoneNumber = "Please enter a valid phone number";
+    if (formData.mobileNumber && !/^[0-9\s-]{7,}$/.test(formData.mobileNumber)) {
+      newErrors.mobileNumber = "Please enter a valid phone number";
     }
     
     setErrors(newErrors);
@@ -110,11 +110,11 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // Set phone code from selected country if not already set
-    if (!formData.phoneCode && selectedCountry) {
+    // Set country code from selected country if not already set
+    if (!formData.countryCode && selectedCountry) {
       setFormData(prev => ({
         ...prev,
-        phoneCode: selectedCountry.value
+        countryCode: selectedCountry.value
       }));
     }
     
@@ -126,22 +126,12 @@ const ContactForm = () => {
     setSubmitStatus(null);
     
     try {
-      // Prepare data for API
-      const contactData = {
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-        email: formData.email,
-        contactNumber: `${formData.phoneCode || selectedCountry.value}${formData.phoneNumber}`,
-        subject: formData.subject,
-        message: formData.message
-      };
-      
       const response = await fetch(`${API_URL}/contact_form`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(contactData),
+        body: JSON.stringify(formData),
       });
       
       const data = await response.json();
@@ -156,10 +146,10 @@ const ContactForm = () => {
         setFormData({
           firstName: "",
           lastName: "",
-          email: "",
-          phoneCode: selectedCountry.value,
-          phoneNumber: "",
-          subject: "",
+          emailAddress: "",
+          countryCode: selectedCountry.value,
+          mobileNumber: "",
+          selectOption: "",
           message: ""
         });
       } else {
@@ -256,14 +246,14 @@ const ContactForm = () => {
           <label className="text-[#4D3E77] text-lg font-semibold mt-5 block">Email Address</label>
           <input 
             type="email" 
-            name="email"
-            value={formData.email}
+            name="emailAddress"
+            value={formData.emailAddress}
             onChange={handleInputChange}
             placeholder="Email Address" 
-            className={`w-full p-4 border ${errors.email ? 'border-red-500' : 'border-gray-300'} rounded-md text-lg`} 
+            className={`w-full p-4 border ${errors.emailAddress ? 'border-red-500' : 'border-gray-300'} rounded-md text-lg`} 
             required 
           />
-          {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
+          {errors.emailAddress && <p className="text-red-500 text-xs mt-1">{errors.emailAddress}</p>}
 
           {/* Mobile Number */}
           <label className="text-[#4D3E77] text-lg font-semibold mt-5 block">Mobile Number</label>
@@ -278,32 +268,32 @@ const ContactForm = () => {
             <div className="flex-1">
               <input 
                 type="tel" 
-                name="phoneNumber"
-                value={formData.phoneNumber}
+                name="mobileNumber"
+                value={formData.mobileNumber}
                 onChange={handleInputChange}
                 placeholder="Mobile Number" 
-                className={`w-full p-4 border ${errors.phoneNumber ? 'border-red-500' : 'border-gray-300'} rounded-md text-md text-[#4D3E77]`} 
+                className={`w-full p-4 border ${errors.mobileNumber ? 'border-red-500' : 'border-gray-300'} rounded-md text-md text-[#4D3E77]`} 
                 required 
               />
-              {errors.phoneNumber && <p className="text-red-500 text-xs mt-1">{errors.phoneNumber}</p>}
+              {errors.mobileNumber && <p className="text-red-500 text-xs mt-1">{errors.mobileNumber}</p>}
             </div>
           </div>
 
-          {/* Subject Dropdown */}
-          <label className="text-[#4D3E77] text-lg font-semibold mt-5 block">Subject</label>
+          {/* Select Option Dropdown */}
+          <label className="text-[#4D3E77] text-lg font-semibold mt-5 block">Select</label>
           <select 
-            name="subject"
-            value={formData.subject}
+            name="selectOption"
+            value={formData.selectOption}
             onChange={handleInputChange}
-            className={`w-full p-4 border ${errors.subject ? 'border-red-500' : 'border-gray-300'} rounded-md text-md`} 
+            className={`w-full p-4 border ${errors.selectOption ? 'border-red-500' : 'border-gray-300'} rounded-md text-md`} 
             required
           >
-            <option value="">-Select a subject-</option>
-            {subjectOptions.map(option => (
+            <option value="">-Select-</option>
+            {selectOptions.map(option => (
               <option key={option.value} value={option.value}>{option.label}</option>
             ))}
           </select>
-          {errors.subject && <p className="text-red-500 text-xs mt-1">{errors.subject}</p>}
+          {errors.selectOption && <p className="text-red-500 text-xs mt-1">{errors.selectOption}</p>}
 
           {/* Message */}
           <label className="text-[#4D3E77] text-lg font-semibold mt-5 block">Your Message</label>
