@@ -11,7 +11,7 @@ const plansData = {
     {
       title: "Solo Core",
       subtitle: "Access to ONE subject of your choice",
-      price: "SAR 225/month",
+      price: "SAR 175/month",
       originalPrice: null,
       discount: null,
       features: [
@@ -24,9 +24,9 @@ const plansData = {
     {
       title: "Dual Core",
       subtitle: "Access to TWO subjects of your choice",
-      price: "SAR 400/month",
-      originalPrice: "SAR 450",
-      discount: "Save SAR 50",
+      price: "SAR 330/month",
+      originalPrice: "SAR 350",
+      discount: "Save SAR 20",
       features: [
         "Full access to both subjects",
         "Individual attention",
@@ -38,9 +38,9 @@ const plansData = {
     {
       title: "Tri Core",
       subtitle: "Access to THREE subjects of your choice",
-      price: "SAR 525/month",
-      originalPrice: "SAR 675",
-      discount: "Save SAR 150",
+      price: "SAR 450/month",
+      originalPrice: "SAR 525",
+      discount: "Save SAR 75",
       features: [
         "Best balance of variety and value",
         "Individual attention",
@@ -52,9 +52,9 @@ const plansData = {
     {
       title: "Quad Core",
       subtitle: "Access to FOUR subjects of your choice",
-      price: "SAR 700/month",
-      originalPrice: "SAR 900",
-      discount: "Save SAR 200",
+      price: "SAR 600/month",
+      originalPrice: "SAR 700",
+      discount: "Save SAR 100",
       features: [
         "Maximum value plan",
         "Individual attention",
@@ -81,8 +81,8 @@ const plansData = {
     {
       title: "Dual Core",
       subtitle: "Access to TWO subjects of your choice",
-      price: "SAR 400/month",
-      originalPrice: "SAR 450",
+      price: "SAR 350/month",
+      originalPrice: "SAR 400",
       discount: "Save SAR 50",
       features: [
         "Full access to both subjects",
@@ -95,8 +95,8 @@ const plansData = {
     {
       title: "Tri Core",
       subtitle: "Access to THREE subjects of your choice",
-      price: "SAR 525/month",
-      originalPrice: "SAR 675",
+      price: "SAR 450/month",
+      originalPrice: "SAR 600",
       discount: "Save SAR 150",
       features: [
         "Best balance of variety and value",
@@ -109,8 +109,8 @@ const plansData = {
     {
       title: "Quad Core",
       subtitle: "Access to FOUR subjects of your choice",
-      price: "SAR 700/month",
-      originalPrice: "SAR 900",
+      price: "SAR 600/month",
+      originalPrice: "SAR 800",
       discount: "Save SAR 200",
       features: [
         "Maximum value plan",
@@ -125,7 +125,7 @@ const plansData = {
     {
       title: "Solo Core",
       subtitle: "Access to ONE subject of your choice",
-      price: "SAR 225/month",
+      price: "SAR 200/month",
       originalPrice: null,
       discount: null,
       features: [
@@ -139,8 +139,8 @@ const plansData = {
     {
       title: "Dual Core",
       subtitle: "Access to TWO subjects of your choice",
-      price: "SAR 400/month",
-      originalPrice: "SAR 450",
+      price: "SAR 350/month",
+      originalPrice: "SAR 400",
       discount: "Save SAR 50",
       features: [
         "Full access to both subjects",
@@ -154,8 +154,8 @@ const plansData = {
     {
       title: "Tri Core",
       subtitle: "Access to THREE subjects of your choice",
-      price: "SAR 525/month",
-      originalPrice: "SAR 675",
+      price: "SAR 450/month",
+      originalPrice: "SAR 600",
       discount: "Save SAR 150",
       features: [
         "Best balance of variety and value",
@@ -169,8 +169,8 @@ const plansData = {
     {
       title: "Quad Core",
       subtitle: "Access to FOUR subjects of your choice",
-      price: "SAR 700/month",
-      originalPrice: "SAR 900",
+      price: "SAR 600/month",
+      originalPrice: "SAR 800",
       discount: "Save SAR 200",
       features: [
         "Maximum value plan",
