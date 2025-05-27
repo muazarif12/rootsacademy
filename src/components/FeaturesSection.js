@@ -1,16 +1,16 @@
 import React from "react";
-// import featureVideo2 from "../assets/videos/video2.mp4" // path of video2
-// import featureVideo3 from "../assets/videos/video3.mp4" // path of video3
-// import featureVideo4 from "../assets/videos/video4.mp4" // path of video4
-// import featureVideo5 from "../assets/videos/video5.mp4" // path of video5
+import featureImage2 from "../assets/images/Replay.png" // path of image2
+import featureImage3 from "../assets/images/Assignments.png" // path of image3
+import featureImage4 from "../assets/images/Instant_Support.png" // path of image4
+import featureImage5 from "../assets/images/Feedback.png" // path of image5
 
 const features = [
   {
     title: "Replay and Resolve",
     description: "Join live classes in real time for direct support, instant feedback, and deeper understanding. Ask questions, engage with experienced  teacher, and stay fully connected to your learning..",
-    videoSrc: "https://cdn.prod.website-files.com/6784e13057450193c3cbe00a/67920fe46e78e143c78d4568_Chemistry%20Short%20Video%20Lecture-transcode.mp4",  //demo
-    //poster: "https://cdn.prod.website-files.com/6784e13057450193c3cbe00a/67920fe46e78e143c78d4568_Chemistry%20Short%20Video%20Lecture-poster-00001.jpg",
-    //videoSrc: featureVideo2, // real 
+    // imageSrc: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",  //demo
+    // imageAlt: "Students in live classroom session",
+    imageSrc: featureImage2, // real 
     bgColor: "bg-red-100",
     borderColor: "border-red-300",
     textColor: " text-pink-800",
@@ -22,9 +22,9 @@ const features = [
   {
     title: "Bit Sized Assignments",
     description: "Tackle topical past paper questions step-by-step with our teacher-guided walkthroughs. These bite-sized assignments are crafted to mirror real exam patterns, helping you understand examiner expectations and improve accuracy. Top teachers solve exam questions step-by-step, showing you exactly what examiners want.",
-    videoSrc: "https://cdn.prod.website-files.com/66a9d3b309fadf5baa213c6b/67a614f6c2304ee3cb6879f8_econcrop-transcode.mp4", //demo
-    //poster: "https://cdn.prod.website-files.com/66a9d3b309fadf5baa213c6b/67a614f6c2304ee3cb6879f8_econcrop-poster-00001.jpg",
-    //videoSrc: featureVideo3, // real
+    // imageSrc: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80", //demo
+    // imageAlt: "Student working on assignments",
+    imageSrc: featureImage3, // real
     bgColor: "bg-green-100",
     borderColor: "border-green-300",
     textColor: "text-green-800",
@@ -35,10 +35,10 @@ const features = [
   },
   {
     title: "Instant Support, 24/7",
-    description: "Confused about a topic? Whether it’s late at night or early morning, get answers by messaging your assistant or teacher anytime. on a question? Get help anytime, anywhere - on your phone, laptop, or tablet.",
-    videoSrc: "https://cdn.prod.website-files.com/6784e13057450193c3cbe00a/679213e703317cd1456221df_Chemistry%20Short%20Academic%20Support-transcode.mp4", //demo
-    //poster: "https://cdn.prod.website-files.com/6784e13057450193c3cbe00a/679213e703317cd1456221df_Chemistry%20Short%20Academic%20Support-poster-00001.jpg",
-    //videoSrc: featureVideo4, // real
+    description: "Confused about a topic? Whether it's late at night or early morning, get answers by messaging your assistant or teacher anytime. on a question? Get help anytime, anywhere - on your phone, laptop, or tablet.",
+    // imageSrc: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80", //demo
+    // imageAlt: "24/7 support and communication",
+    imageSrc: featureImage4, // real
     bgColor: "bg-blue-100",
     borderColor: "border-green-300",
     textColor: "text-blue-800",
@@ -50,9 +50,9 @@ const features = [
   {
     title: "Real Practice. Real Feedback.",
     description: "Submit tests and assignments on student portal, and receive detailed evaluations to guide your improvement. It's not just about practice—it's about progress.",
-    videoSrc: "https://cdn.prod.website-files.com/6784e13057450193c3cbe00a/67921404b91f5fc62e6a297b_Chemistry%20Short%20Crash%20Courses-transcode.mp4", //demo
-    //poster: "https://cdn.prod.website-files.com/6784e13057450193c3cbe00a/67921404b91f5fc62e6a297b_Chemistry%20Short%20Crash%20Courses-poster-00001.jpg",
-    //videoSrc: featureVideo5, // real
+    // imageSrc: "https://images.unsplash.com/photo-1606868306217-dbf5046868d2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80", //demo
+    // imageAlt: "Student receiving feedback on assignments",
+    imageSrc: featureImage5, // real
     bgColor: "bg-yellow-100",
     borderColor: "border-yellow-300",
     textColor: "text-yellow-800",
@@ -78,7 +78,7 @@ const FeaturesSection = () => {
           </h1>
           <p className="text-[23px] text-[#4d3e78] leading-[1.3] font-normal mt-0 mb-0 tracking-normal font-['Inter_Tight'] max-w-[40rem] mx-auto">
             Our platform has helped students across 100+ countries achieve their dream grades.
-            It’s not just a promise – it’s our guarantee.
+            It's not just a promise – it's our guarantee.
           </p>
         </div>
 
@@ -97,14 +97,10 @@ const FeaturesSection = () => {
                 </p>
               </div>
               <div className="w-full aspect-video bg-gray-200 rounded-lg overflow-hidden">
-                <video
-                  className="w-full h-full object-cover"
-                  src={features[0].videoSrc}
-                  //poster={features[0].poster}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
+                <img
+                  className="w-full h-full object-contain"
+                  src={features[0].imageSrc}
+                  alt={features[0].imageAlt}
                 />
               </div>
             </div>
@@ -120,14 +116,10 @@ const FeaturesSection = () => {
                 </p>
               </div>
               <div className="w-full aspect-video bg-gray-200 rounded-lg overflow-hidden">
-                <video
-                  className="w-full h-full object-cover"
-                  src={features[1].videoSrc}
-                  //poster={features[1].poster}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
+                <img
+                  className="w-full h-full object-contain"
+                  src={features[1].imageSrc}
+                  alt={features[1].imageAlt}
                 />
               </div>
             </div>
@@ -146,14 +138,10 @@ const FeaturesSection = () => {
                 </p>
               </div>
               <div className="w-full aspect-video bg-gray-200 rounded-lg overflow-hidden">
-                <video
-                  className="w-full h-full object-cover"
-                  src={features[2].videoSrc}
-                  //poster={features[2].poster}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
+                <img
+                  className="w-full h-full object-contain"
+                  src={features[2].imageSrc}
+                  alt={features[2].imageAlt}
                 />
               </div>
             </div>
@@ -169,14 +157,10 @@ const FeaturesSection = () => {
                 </p>
               </div>
               <div className="w-full aspect-video bg-gray-200 rounded-lg overflow-hidden">
-                <video
-                  className="w-full h-full object-cover"
-                  src={features[3].videoSrc}
-                  //poster={features[3].poster}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
+                <img
+                  className="w-full h-full object-contain"
+                  src={features[3].imageSrc}
+                  alt={features[3].imageAlt}
                 />
               </div>
             </div>
