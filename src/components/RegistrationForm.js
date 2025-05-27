@@ -463,6 +463,12 @@ const RegistrationForm = () => {
                 <option value="">-Please Select-</option>
                 <option value="2025">May/June 2025</option>
                 <option value="2025-nov">Oct/Nov 2025</option>
+                <option value="2026">May/June 2026</option>
+                <option value="2026-nov">Oct/Nov 2026</option>
+                <option value="2027">May/June 2027</option>
+                <option value="2027-nov">Oct/Nov 2027</option>
+                <option value="2028">May/June 2028</option>
+                <option value="2028-nov">Oct/Nov 2028</option>
               </select>
               {errors.enrollingFor && <p className="text-red-500 text-xs mt-1">{errors.enrollingFor}</p>}
             </div>
