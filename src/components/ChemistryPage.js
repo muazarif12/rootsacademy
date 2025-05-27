@@ -35,17 +35,12 @@ const ChemistryPage = ({ trial = false, purchase = false }) => {
             </p>
             <div className="flex space-x-4">
               <Link
-                to="/try-biology-free"
-                className="px-6 py-3 bg-[#222222] text-white font-semibold rounded-lg hover:bg-gray-800 transition"
-              >
-                Try for free
-              </Link>
-              <Link
-                to="/buy-biology"
+                to="/register"
                 className="px-6 py-3 bg-[#4D3E77] text-white font-semibold rounded-lg hover:bg-[#3A2D5A] transition"
               >
-                Buy Now
+                Free Demo Class
               </Link>
+              
             </div>
           </div>
           <div className="rounded-lg shadow-xl overflow-hidden border-8 border-white bg-white">
@@ -75,16 +70,10 @@ const ChemistryPage = ({ trial = false, purchase = false }) => {
             </p>
             <div className="flex space-x-4">
               <Link
-                to="/try-biology-free"
-                className="px-6 py-3 bg-[#222222] text-white font-semibold rounded-lg hover:bg-gray-800 transition"
-              >
-                Try for free
-              </Link>
-              <Link
-                to="/buy-biology"
+                to="/register"
                 className="px-6 py-3 bg-[#4D3E77] text-white font-semibold rounded-lg hover:bg-[#3A2D5A] transition"
               >
-                Buy Now
+                Free Demo Class
               </Link>
             </div>
           </div>
@@ -99,16 +88,10 @@ const ChemistryPage = ({ trial = false, purchase = false }) => {
             </p>
             <div className="flex space-x-4">
               <Link
-                to="/try-biology-free"
-                className="px-6 py-3 bg-[#222222] text-white font-semibold rounded-lg hover:bg-gray-800 transition"
-              >
-                Try for free
-              </Link>
-              <Link
-                to="/buy-biology"
+                to="/register"
                 className="px-6 py-3 bg-[#4D3E77] text-white font-semibold rounded-lg hover:bg-[#3A2D5A] transition"
               >
-                Buy Now
+                Free Demo Class
               </Link>
             </div>
           </div>
@@ -139,16 +122,10 @@ const ChemistryPage = ({ trial = false, purchase = false }) => {
             </p>
             <div className="flex space-x-4">
               <Link
-                to="/try-biology-free"
-                className="px-6 py-3 bg-[#222222] text-white font-semibold rounded-lg hover:bg-gray-800 transition"
-              >
-                Try for free
-              </Link>
-              <Link
-                to="/buy-biology"
+                to="/register"
                 className="px-6 py-3 bg-[#4D3E77] text-white font-semibold rounded-lg hover:bg-[#3A2D5A] transition"
               >
-                Buy Now
+                Free Demo Class
               </Link>
             </div>
           </div>
