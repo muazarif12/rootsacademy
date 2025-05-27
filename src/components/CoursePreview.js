@@ -2,30 +2,31 @@ import React, { useState } from "react";
 import courseImage from "../assets/images/video_image.PNG"; // path of video image
 import featureVideo from "../assets/videos/feature.mp4" // path of
 
-
-
 const CoursePreview = () => {
   const [videoVisible, setVideoVisible] = useState(false);
-
+  
   const handlePlayClick = () => {
     setVideoVisible(true);
   };
-
+  
   const handleCloseVideo = () => {
     setVideoVisible(false);
   };
-
+  
   return (
-    <div className="flex justify-center mt-12 mb-20">
+    <div className="flex justify-center mt-12 mb-20 px-4">
       {/* Container for the video image with overlay */}
-      <div className="relative border-4 border-purple-300 rounded-xl shadow-xl bg-white overflow-hidden">
+      <div 
+        className="relative border-4 border-purple-300 rounded-xl shadow-xl bg-white overflow-hidden w-full max-w-sm sm:max-w-lg md:max-w-2xl lg:max-w-4xl" 
+        style={{ aspectRatio: '1920/1272' }}
+      >
         {/* Image as background */}
         <img
           src={courseImage}
           alt="Courses"
           className="w-full h-full object-cover"
         />
-
+        
         {/* Video Play Button Overlay */}
         {!videoVisible && (
           <div
@@ -48,34 +49,21 @@ const CoursePreview = () => {
             </div>
           </div>
         )}
-
-        {/* Video iframe (only visible when the video is active) */}
+        
+        {/* Video container (only visible when the video is active) */}
         {videoVisible && (
-          <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-black bg-opacity-75">
-            {/* <video
+          <div className="absolute top-0 left-0 right-0 bottom-0 bg-black">
+            <video
               src={featureVideo}
-              height="529"
               controls
               autoPlay
-              type="video/mp4"
-            /> */}
-
-            <iframe
-              src="https://player.vimeo.com/video/1050689757?autoplay=1"
-              width="940"
-              height="529"
-              frameBorder="0"
-              allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
-              allowFullScreen
-              title="Course Video"
-            ></iframe>
-
-
+              className="w-full h-full object-cover"
+            />
             <button
               onClick={handleCloseVideo}
-              className="absolute top-4 right-4 text-white text-xl"
+              className="absolute top-2 right-2 text-white text-xl bg-black bg-opacity-50 hover:bg-opacity-75 rounded-full w-8 h-8 flex items-center justify-center transition-all duration-200 z-10"
             >
-              Close
+              ×
             </button>
           </div>
         )}
