@@ -93,7 +93,7 @@ const AboutUs = () => {
                         </button>
                     </div>
                 </div>
-                <div className="w-full lg:w-1/2 mb-8 lg:mb-0 flex justify-center px-6 md:px-16">
+                {/* <div className="w-full lg:w-1/2 mb-8 lg:mb-0 flex justify-center px-6 md:px-16">
                     <div className="px-6 md:px-16 py-10">
                         <ul className="space-y-4 mb-6">
                             {features.map((text, index) => (
@@ -112,7 +112,7 @@ const AboutUs = () => {
                             Let's Connect
                         </button>
                     </div>
-                </div>
+                </div> */}
             </section>
             
             <section className="w-full flex flex-col lg:flex-row items-center justify-between pt-40">
