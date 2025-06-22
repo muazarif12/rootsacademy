@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Helmet } from 'react-helmet';
 
 const RegistrationForm = () => {
   const [tab, setTab] = useState("oLevel"); // oLevel, aLevel, igcse
@@ -307,6 +308,14 @@ const RegistrationForm = () => {
   };
 
   return (
+    <>
+      <Helmet>
+        <title>My Page Title</title>
+        <meta property="og:title" content="Registration Page" />
+        <meta property="og:description" content="This is the description that shows when you share this page." />
+        <meta property="og:image" content="" />
+        <meta property="og:url" content="" />
+      </Helmet>
     <div className="max-w-6xl w-full mx-auto py-10 px-6 bg-[#FDF9F6] lg:rounded-lg lg:shadow-lg">
       <h2 className="text-3xl font-semibold text-center mb-8 font-['Inter_Tight'] text-[#4B3676]">
         Student Registration Form
@@ -755,6 +764,7 @@ const RegistrationForm = () => {
         </div>
       </form>
     </div>
+    </>
   );
 };
 
